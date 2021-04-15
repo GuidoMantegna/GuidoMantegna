@@ -1,4 +1,4 @@
-![banner](avocado-banner.jpg)
+![banner](dino-back-light.jpg)
 ## Hi, i'm Guido!
 
 ### :wave: I'm a trainee frontend developer from Buenos Aires, Argentina. 
@@ -26,7 +26,7 @@ i've been studying hard for over an year and now i strongly want to continue lea
 \- Twitter https://twitter.com/GuidoMantegna?s=08 <br>
 \- Instagram https://www.instagram.com/guidomantegna/?hl=es-la
 
-![banner](avocado-banner.jpg)
+![banner](dino-back-light.jpg)
 
 
 
