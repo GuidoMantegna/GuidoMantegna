@@ -1,4 +1,12 @@
-### Hi there 👋
+## Hi i'm Guido!
+
+### :wave: I'm a trainee frontend developer from Buenos Aires, Argentina. 
+i've been studying hard for over an year and now i strongly want to continue learning in some project.
+
+:muscle: **skills** 
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=GuidoMantegna&layout=compact&theme=calm)
+![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=GuidoMantegna&show_icons=true&hide=contribs,prs&theme=calm)
+
 
 <!--
 **GuidoMantegna/GuidoMantegna** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
