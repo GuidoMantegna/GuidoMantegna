@@ -8,9 +8,15 @@
     box-sizing: border-box;
     /* width: 100vw; */
     height: 80vh;
-    overflow: hidden;
     position: relative;
+}
+
+.work-slide {
+    display: flex;
+    width: 100%;
+    overflow: hidden;
     scroll-behavior: smooth;
+
 }
 
 .work-item {
@@ -31,6 +37,10 @@
     font-size: 2em;
     top: 50%;
     z-index: 1;
+}
+
+.rew {
+    display: none;
 }
 
 .fwd {

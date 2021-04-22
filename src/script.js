@@ -16,62 +16,22 @@ titles.forEach(title => title.addEventListener('click', e => {
     }
 }))
 
-const fwd = document.querySelector('.fwd')
-const rew = document.querySelector('.rew')
-const workItem = document.querySelectorAll('.work-item')
-const workMainContainer = document.querySelector('.work-main-container')
-const workBtn = document.querySelectorAll('.work-item > label')
 
-// workMainContainer.addEventListener('click', e => console.log(e))
+const workBtn = document.querySelectorAll('.work-main-container > label')
+const slide = document.querySelector('.work-slide')
+const width = slide.offsetWidth;
 
 workBtn.forEach(btn => btn.addEventListener('click', e => {
     const action = e.target.dataset.action;
-    const width = workMainContainer.offsetWidth;
-    const actualScroll = workMainContainer.scrollLeft;
-    const totalScroll = workMainContainer.scrollWidth;
-
-    if(action === "fwd") {
-        // workItem.forEach(item => item.style.transform = `translateX(-${width}px)`)
-        workMainContainer.scrollLeft += width
-
-        // if((actualScroll + width*2) === totalScroll) {
-        //     btn.style.display = "none"
-        // }
-        
-    } else {
-        // workItem.forEach(item => item.style.transform = `translateX(${width}px)`)
-        workMainContainer.scrollLeft -= width
-    }
-
-    if ((actualScroll + width*2) === totalScroll) {
-        workBtn.forEach(item => {
-            if(action === 'fwd') {
-                item.style.display = "none"
-            }
-            console.log(item.dataset)
-        })
-    }
-
-    if (actualScroll === width) {
-        workBtn.forEach(item => {
-            if(item.dataset === 'rwd') {
-                item.style.display = "none"
-            }
-        })
-    }
-
-    // console.log(width)
-    // console.log(actualScroll)
     
+    action === "fwd" ? slide.scrollLeft += width : slide.scrollLeft -= width;    
 }))
 
-// fwd.addEventListener('click', e => {
-//     workItem.forEach(item => item.style.transform = 'translateX(-100%)')
+slide.addEventListener('scroll', e => {
+    const totalScroll = slide.scrollWidth;
+    let actualScroll = e.target.scrollLeft;
 
-//     workBtn.forEach(btn => btn.addEventListener('click', e => {
-//         const action = e.target.dataset.action
+    actualScroll > 0 ? workBtn[0].style.display = 'block' : workBtn[0].style.display = 'none';
+    actualScroll + width < totalScroll ? workBtn[1].style.display = 'block' : workBtn[1].style.display = 'none';
 
-//         action === "fwd" ? workItem.style.transform = 'translateX(-100%)' : workItem.style.transform = 'translateX(100%)'
-
-//     }))
-// })
+})
