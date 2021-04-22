@@ -1,13 +1,7 @@
-.work {
-    /* position: relative; */
-}
-
 .work-main-container {
     display: flex;
-    /* border: 1px solid tomato; */
     box-sizing: border-box;
-    /* width: 100vw; */
-    height: 80vh;
+    height: 85vh;
     position: relative;
 }
 
@@ -16,18 +10,18 @@
     width: 100%;
     overflow: hidden;
     scroll-behavior: smooth;
-
 }
 
 .work-item {
     width: 100%;
     height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr;
     box-sizing: border-box;
-    background: wheat;
-    /* border: 1px solid black; */
     flex-shrink: 0;
     transition: all 2s;
     position: relative;
+    padding: 10px;
 }
 
 .rew, 
@@ -47,3 +41,55 @@
     right: 0;
 }
 
+.work-desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 10px;
+    height: 100%;
+    border-radius: 2.5px;
+}
+
+.work-title {
+    color: var(--title-color);
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.ipad {
+    width: 75%;
+    padding: 5px 20px;
+    background: whitesmoke;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
+.medium-wide {
+    width: 100%;
+    /* position: absolute; */
+    right: 0;
+}
+
+.small-portrait {
+    height: 50%;
+    position: absolute;
+    right: 34%;
+    top: 30%;
+}
+
+.react-video {
+    width: 100%;
+    /* padding: 7.5px; */
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 3px 3px rgba(194, 194, 194, 0.5);
+    /* border: 2px groove wheat; */
+}
+
+.work-desc > p {
+    font-size: .75em;
+    color: var(--p-color);
+    margin: 5px 0;
+    letter-spacing: var(--p-letter-spacing);
+}
