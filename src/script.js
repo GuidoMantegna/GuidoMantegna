@@ -19,6 +19,7 @@ titles.forEach(title => title.addEventListener('click', e => {
 
 const workBtn = document.querySelectorAll('.work-main-container > label')
 const slide = document.querySelector('.work-slide')
+const slidePosition = document.querySelectorAll('.slide-position > div')
 const width = slide.offsetWidth;
 
 workBtn.forEach(btn => btn.addEventListener('click', e => {
@@ -33,5 +34,28 @@ slide.addEventListener('scroll', e => {
 
     actualScroll > 0 ? workBtn[0].style.display = 'block' : workBtn[0].style.display = 'none';
     actualScroll + width < totalScroll ? workBtn[1].style.display = 'block' : workBtn[1].style.display = 'none';
+
+    const setSlidePosition = (num) => {
+        for (let index = 0; index < slidePosition.length; index++) {
+            index === num ? 
+            slidePosition[index].style.background = "rgba(255, 248, 220, .8)":
+            slidePosition[index].style.background = "rgba(255, 248, 220, .3)"
+        }
+    }
+
+    switch (actualScroll) {
+        case 0:
+            setSlidePosition(0)
+            break;
+        case width:
+            setSlidePosition(1)
+            break;
+        case width*2:
+            setSlidePosition(2)
+            break;
+        case width*3:
+            setSlidePosition(3)
+            break;
+    }
 
 })
