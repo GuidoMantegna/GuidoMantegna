@@ -1,7 +1,7 @@
 .work-main-container {
     display: flex;
     box-sizing: border-box;
-    height: 88vh;
+    height: 89vh;
     position: relative;
 }
 
@@ -26,6 +26,64 @@
     padding: 0 10px;
 }
 
+.project-video {
+    width: 100%;
+    margin-top: 5px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 3px 3px rgba(194, 194, 194, 0.5);
+}
+
+.js-challenge {
+    padding: 0 20px;
+}
+
+.work-presentation {
+    background: linear-gradient(to right, var(--main-back-color), rgba(30, 44, 49, .8), var(--main-back-color)), url(/src/images/work.jpeg);
+    background-size: cover;
+    min-height: 1%;
+    padding: 20px;
+}
+
+.work-desc {
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px;
+    height: 100%;
+    max-width: 100%;
+}
+
+.work-title {
+    color: var(--title-color);
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+.project-link {
+    color: var(--link-color);
+    font-size: .75em;
+    font-weight: lighter;
+}
+
+.work-desc > p {
+    font-size: .8em;
+    color: var(--p-color);
+    letter-spacing: var(--p-letter-spacing);
+    margin-top: 5px;
+    text-align: justify;
+}
+
+.small-portrait {
+    height: 90%;
+    width: auto;
+    box-sizing: border-box;
+    padding: 25px 8px;
+    border: 3px solid rgba(255, 248, 220, .8);
+    box-shadow: 3px 3px rgba(255, 248, 220, .3);
+    border-radius: 10px;
+    display: none;
+}
+
 .rew, 
 .fwd {
     position: absolute;
@@ -42,88 +100,6 @@
 
 .fwd {
     right: 5px;
-}
-
-.js-challenge {
-    padding: 0 20px;
-}
-
-.videos-container {
-    flex-grow: 1;
-}
-
-.work-desc {
-    
-    /* display: grid; */
-    /* grid-template-columns: 20% 80%; */
-    /* justify-content: center; */
-    display: flex;
-    flex-direction: column;
-    padding: 0 15px;
-    height: 100%;
-    max-width: 100%;
-    border-radius: 2.5px;
-}
-
-.work-title {
-    color: var(--title-color);
-    font-size: .9em;
-    margin: 15px 0;
-}
-
-.work-presentation {
-    background: linear-gradient(to right, var(--main-back-color), var(--main-back-color-deg), var(--main-back-color)), url(/src/images/work.jpeg);
-    background-size: cover;
-    min-height: 1%;
-    padding: 20px;
-}
-
-.work-desc > p {
-    font-size: .8em;
-    color: var(--p-color);
-    margin-top: 7.5px;
-    letter-spacing: var(--p-letter-spacing);
-    text-align: justify;
-}
-
-.project-link {
-    color: var(--link-color);
-    font-size: .9em;
-}
-
-.ipad {
-    width: 75%;
-    padding: 5px 20px;
-    background: whitesmoke;
-    border-radius: 10px;
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
-}
-.medium-wide {
-    width: 100%;
-    /* position: absolute; */
-    right: 0;
-}
-
-.small-portrait {
-    height: 100%;
-    box-sizing: border-box;
-    background: rgb(35, 35, 35);
-    padding: 20px 5px;
-    border-radius: 5px;
-    display: none;
-}
-.small-portrait > img {
-    height: 100%;
-}
-
-.project-video {
-    width: 100%;
-    margin-top: 5px;
-    box-sizing: border-box;
-    border-radius: 5px;
-    box-shadow: 3px 3px rgba(194, 194, 194, 0.5);
 }
 
 .slide-position {
@@ -143,18 +119,16 @@
     transition: all .25s;
 }
 
-.vi
-
 .slide-position > div:nth-child(1) {
     background-color: rgba(255, 248, 220, .8);
 }
 
-@media screen and (min-width: 375px) {
+@media screen and (min-width: 375px) and (min-height: 700px){
     .work-title {
-        font-size: 1em;
-        margin: 20px 0;
+        font-size: 1.5em;
+        margin-bottom: 20px;
     }
-    .presentation-p > p {
+    .work-desc > p {
         font-size: 1em;
         margin-top: 10px;
     }
@@ -167,14 +141,12 @@
     .work-item-container {
         padding: 0 25px;
     }
-    .work-title {
-        font-size: 1.2em;
-    }
-    .presentation-p > p {
+    .work-desc > p {
         font-size: 1em;
-    }
-    
+        margin-top: 5px;
+    }    
 }
+
 
 @media screen and (min-width: 576px) {
     .work-item-container {
@@ -183,26 +155,25 @@
 }
 
 @media screen and (min-width: 768px) {
-
-    .work-brief {
-        grid-area: area-a;
-    }
-
     .work-item-container {
+        grid-template-rows: 1fr auto;
         padding: 0 50px;
     }
     .work-presentation {
-        /* height: 45%; */
         display: flex;
-        /* grid-template-columns: 1fr 1fr; */
+        align-items: center;
+        grid-area: area-a;
     }
     .work-title {
-        font-size: 1.5em;
+        font-size: 1.75em;
         margin: 10px 0;
     }
-    .presentation-p {
+    .work-desc {
         padding: 15px;
-        font-size: 1.25em;
+        justify-content: center;
+    }
+    .work-desc > p {
+        margin-top: 15px;
     }
     .small-portrait {
         display: block;
