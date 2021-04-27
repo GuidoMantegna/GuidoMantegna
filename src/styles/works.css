@@ -1,7 +1,7 @@
 .work-main-container {
     display: flex;
     box-sizing: border-box;
-    height: 89vh;
+    min-height: 93vh;
     position: relative;
 }
 
@@ -14,11 +14,10 @@
 
 .work-item-container {
     width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-rows: auto 1fr;
-    grid-template-areas: "area-a"
-                         "area-b";
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     box-sizing: border-box;
     flex-shrink: 0;
     transition: all 2s;
@@ -28,6 +27,7 @@
 
 .project-video {
     width: 100%;
+    height: auto;
     margin-top: 5px;
     box-sizing: border-box;
     border-radius: 5px;
@@ -36,12 +36,14 @@
 
 .js-challenge {
     padding: 0 20px;
+    display: flex;
 }
 
 .work-presentation {
     background: linear-gradient(to right, var(--main-back-color), rgba(30, 44, 49, .8), var(--main-back-color)), url(/src/images/work.jpeg);
     background-size: cover;
-    min-height: 1%;
+    /* min-height: 1%; */
+    flex-grow: 1;
     padding: 20px;
 }
 
@@ -74,8 +76,7 @@
 }
 
 .small-portrait {
-    height: 90%;
-    width: auto;
+    width: 30%;
     box-sizing: border-box;
     padding: 25px 8px;
     border: 3px solid rgba(255, 248, 220, .8);
@@ -136,7 +137,7 @@
 
 @media screen and (min-width: 425px) {
     .js-challenge {
-        padding: 0 45px;
+        padding: 0 55px;
     }
     .work-item-container {
         padding: 0 25px;
@@ -150,14 +151,20 @@
 
 @media screen and (min-width: 576px) {
     .work-item-container {
-        padding: 0 50px;
+        padding: 0 60px;
     }
 }
 
 @media screen and (min-width: 768px) {
+    .project-video {
+        margin-bottom: 30px;
+        margin-top: 0;
+        
+    }
+
     .work-item-container {
-        grid-template-rows: 1fr auto;
-        padding: 0 50px;
+        flex-direction: column-reverse;
+        padding: 0 70px;
     }
     .work-presentation {
         display: flex;
@@ -169,7 +176,7 @@
         margin: 10px 0;
     }
     .work-desc {
-        padding: 15px;
+        padding: 0 30px;
         justify-content: center;
     }
     .work-desc > p {
@@ -177,5 +184,23 @@
     }
     .small-portrait {
         display: block;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .work-item-container {
+        padding: 0 100px;
+        flex-direction: row;
+    }
+    .project-video {
+        width: 50%;
+        margin: 0;
+    }
+    .small-portrait {
+        /* width: 20%; */
+        display: none;
+    }
+    .work-desc {
+        width: 100%;
     }
 }
