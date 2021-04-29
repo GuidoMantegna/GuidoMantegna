@@ -1,5 +1,5 @@
 .skills-main-container {
-    padding: 10px 25px;
+    /* padding: 10px 25px; */
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -66,7 +66,7 @@
 
 @media screen and (min-width: 576px) {
     .skills-main-container {
-        padding: 10px 15%;
+        /* padding: 10px 15%; */
     }
 }
 

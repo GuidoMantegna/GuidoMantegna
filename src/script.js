@@ -59,3 +59,7 @@ slide.addEventListener('scroll', e => {
     }
 
 })
+
+// document.addEventListener('onload', () => {
+//     console.log('the page has loaded')
+// })

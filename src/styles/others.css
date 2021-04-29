@@ -1,5 +1,5 @@
 .others-main-container {
-    padding: 10px 25px;
+    /* padding: 10px 25px; */
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -81,7 +81,7 @@
 
 @media screen and (min-width: 576px) {
     .others-main-container {
-        padding: 10px 15%;
+        /* padding: 10px 15%; */
     }
     .others-content {
         grid-template-columns: repeat(auto-fill, 48%);
