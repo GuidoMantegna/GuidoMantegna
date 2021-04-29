@@ -164,16 +164,21 @@ header {
 .content {
     font-family: 'Lato', sans-serif;
     min-height: 100vh;
-    /* padding: 20px; */
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .content-title {
     font-size: 16px;
     color: rgba(255, 127, 80, .4);
     margin: 7.5px;
+}
+
+.close-tag {
+    position: absolute;
+    bottom: 5px;
 }
 
 /* ABOUT */
