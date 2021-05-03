@@ -1,5 +1,4 @@
 .others-main-container {
-    /* padding: 10px 25px; */
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -8,92 +7,161 @@
 }
 
 .others-content {
-    /* position: relative; */
+    margin: 5px 0;
     flex-grow: 1;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 90%);
-    grid-gap: 10px;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    align-content: center;
+    font-size: 16px;
 }
 
-.others-item {
-    height: fit-content;
-    position: relative;
-    /* display: flex; */
+.others-tags {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
-.others-item:nth-child(2) {
-    /* position: absolute;
-    bottom: 50%; */
-}
-.others-item:nth-child(3) {
-    /* position: absolute;
-    top: 50%; */
-}
-.others-item:nth-child(4) {
-    /* position: absolute;
-    bottom: 0; */
-}
-
-.other-right {
-    text-align: end;
-}
-
-.others-item > img {
-    max-width: 100%;
-    /* margin: 5px; */
-    border-radius: 5px;
-}
-
-.hobbie-brief {
+label {
+    width: 21%;
+    padding: 3px 5px;
     color: var(--p-color);
-    width: 75%;
-    letter-spacing: var(--p-letter-spacing);
-    font-size: .7em;
-    text-align: justify;
-    background-color: rgba(80, 80, 80, 0.85);
-    text-shadow: 1px 1px rgb(68, 68, 68);
-    padding: 10px;
-    position: absolute;
+    text-shadow: 1px 1px rgb(68, 68, 68);   
+    font-size: 0.6em;
+    font-weight: bold;
+    text-align: center;
+    transition: all .5s;
 }
 
-.left-brief {
-    top: 15%;
+.selected-tag {
+    transform: translateY(0);
+    background-color: rgba(146, 82, 82, 0.75);
     border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    /* left: 5px;
     border-top-left-radius: 5px;
-    box-shadow: -2px -2px rgb(68, 68, 68); */
 }
 
-.right-brief {
-    bottom: 25%;
+.no-selected-tag {
+    transform: translateY(100%);
+    background: rgba(68, 68, 68, .75);
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    opacity: .45;
+    cursor: pointer;
+}
+
+.no-selected-tag:hover {
+    opacity: 1;
+}
+
+.others-img {
+    flex-grow: 1;
+    width: 100%;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    position: relative;
+    z-index: -1;
+}
+
+/* .others-img::after,
+.others-img::before {
+    content: "";
+    display: block;
+    background-color: rgba(68, 68, 68, .75);
+    position: absolute;
+    z-index: 1;
+} */
+
+/* .others-img::before {
+    left: 0;
+    width: 50%;
+    height: 100%;
+}
+.others-img::after {
     right: 0;
-    border-top-left-radius: 5px;
+    width: 50%;
+    height: 100%;
+} */
+
+.selected-img {
+    display: block;
+}
+
+.no-selected-img {
+    display: none;
+}
+
+.ph-img {
+    background-image: url('/src/images/photography.JPG');
+    background-size: cover;
+    background-position: center;    
+}
+.wood-img {
+    background-image: url('/src/images/woodwork-2.jpg');
+    background-size: cover;
+    background-position: top;
+}
+.music-img {
+    background-image: url('/src/images/music.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.sports-img {
+    background-image: url('/src/images/bike.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.others-desc {
+    padding: 10px;
+    background-color: rgba(100, 100, 100, .5);
+    width: 80%;
+    border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
 }
 
-.hobbie-brief > span {
+.hobby-brief {
+    color: var(--p-color);
+    font-size: .75em;
+    letter-spacing: var(--p-letter-spacing);
+    text-shadow: 1px 1px rgb(51, 51, 51);
+}
+
+.hobby-brief > span {
     font-weight: bold;
 }
 
-@media screen and (min-width: 576px) {
-    .others-main-container {
-        /* padding: 10px 15%; */
+.selected-brief {
+    display: block;
+}
+
+.no-selected-brief {
+    display: none;
+}
+
+@media screen and (min-width: 375px) {
+    label {
+        font-size: 0.7em
     }
-    .others-content {
-        grid-template-columns: repeat(auto-fill, 48%);
+}
+
+@media screen and (min-width: 576px) {
+    label {
+        font-size: 0.8em
     }
 }
 
 @media screen and (min-width: 768px) {
-    
+    .others-content {
+        margin: 15px 0;
+    }
+    label {
+        font-size: 0.9em;
+        width: 23%;
+    }
+    .hobby-brief {
+        font-size: .95em;
+    }
 }
 
 @media screen and (min-width: 992px) {
-    .others-content {
-        grid-template-columns: repeat(auto-fill, 35%);
-    }
+
 }

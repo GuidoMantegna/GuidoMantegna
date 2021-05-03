@@ -392,3 +392,9 @@ background: rgb(116, 105, 74);
         height: 290px;
     }
 }
+
+@media screen and (min-width: 992px) {
+    .content {
+        padding: 0 20%;
+    }
+}

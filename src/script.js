@@ -63,3 +63,53 @@ slide.addEventListener('scroll', e => {
 // document.addEventListener('onload', () => {
 //     console.log('the page has loaded')
 // })
+
+const otherTags = document.querySelectorAll('.others-tags > label');
+const othersImg = document.querySelectorAll('.others-img');
+const hobbyBrief = document.querySelectorAll('.hobby-brief');
+let selectedLabel = 'photography';
+
+otherTags.forEach(tag => tag.addEventListener('click', (e) => {
+    const labelName = e.target.attributes[1].value;
+
+    const selectHobby = num => {
+        for (let index = 0; index < otherTags.length; index++) {
+            if(index !== num) {
+                otherTags[index].classList.remove('selected-tag');
+                otherTags[index].classList.add('no-selected-tag');
+
+                othersImg[index].classList.remove('selected-img');
+                othersImg[index].classList.add('no-selected-img');
+
+                hobbyBrief[index].classList.remove('selected-brief');
+                hobbyBrief[index].classList.add('no-selected-brief');
+            } else {
+                otherTags[num].classList.toggle('selected-tag');
+                otherTags[num].classList.toggle('no-selected-tag');
+                othersImg[num].classList.toggle('selected-img');
+                othersImg[num].classList.toggle('no-selected-img');
+                hobbyBrief[num].classList.toggle('selected-brief');
+                hobbyBrief[num].classList.toggle('no-selected-brief');
+            }     
+        }
+    }
+
+    if(selectedLabel !== labelName) {
+        switch (labelName) {
+        case 'photography':
+            selectHobby(0)           
+            break;
+        case 'woodwork': 
+            selectHobby(1)
+            break;
+        case 'music':
+            selectHobby(2)
+            break;
+        case 'sports': 
+            selectHobby(3)
+            break;
+        }
+    }
+
+    selectedLabel = labelName;    
+}))
