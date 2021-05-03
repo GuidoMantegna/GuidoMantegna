@@ -1,9 +1,9 @@
 .work-main-container {
-    /* background: linear-gradient(to right, var(--main-back-color), rgba(30, 44, 49, .9), var(--main-back-color)), url(/src/images/work.jpeg);
-    background-size: cover; */
-    display: flex;
     box-sizing: border-box;
-    min-height: 91vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-grow: 1;
     position: relative;
 }
 
@@ -15,6 +15,8 @@
 }
 
 .work-item-container {
+    /* background: linear-gradient(to right, var(--main-back-color), var(--main-back-color-deg), var(--main-back-color)), url(/src/images/work.jpeg);
+    background-size: cover; */
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -24,53 +26,57 @@
     flex-shrink: 0;
     transition: all 2s;
     position: relative;
+    border-radius: 5px;
     padding: 0 10px;
 }
 
 .project-video {
     width: 100%;
     height: auto;
-    margin-top: 5px;
     box-sizing: border-box;
-    border-radius: 5px;
-    box-shadow: 3px 3px rgba(194, 194, 194, 0.5);
+    border-radius: 3px;
+    box-shadow: 3px 3px rgb(194, 194, 194, 0.5);
 }
 
 .js-challenge {
-    padding: 0 20px;
-    margin-bottom: 20px;
+    padding: 0 25px;
     box-sizing: border-box;
 }
 
 .js-challenge > video {
     width: 100%;
-    border-radius: 5px;
+    border-radius: 3px;
     box-shadow: 3px 3px rgba(194, 194, 194, 0.5);
-    margin: 5px;
+}
+
+.js-challenge > video:nth-child(2) {
+    margin-top: 5px;
 }
 
 .work-presentation {
     flex-grow: 1;
-    padding: 20px;
+    padding-top: 10px;
 }
 
 .work-desc {
     display: flex;
     flex-direction: column;
-    padding: 0 15px;
-    height: 100%;
     max-width: 100%;
+    padding: 10px;
+    border-radius: 3px;
 }
 
 .work-title {
     color: var(--title-color);
     font-size: 1.2em;
-    margin-bottom: 15px;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 .project-link {
     color: var(--link-color);
-    font-size: .75em;
+    font-size: .5em;
+    margin: 0 5px;
     font-weight: lighter;
 }
 
@@ -86,6 +92,7 @@
     width: 30%;
     box-sizing: border-box;
     padding: 25px 8px;
+    margin: 10px 0;
     border: 3px solid rgba(255, 248, 220, .8);
     box-shadow: 3px 3px rgba(255, 248, 220, .3);
     border-radius: 10px;
@@ -103,18 +110,18 @@
 
 .rew {
     display: none;
-    left: 10px;
+    /* left: 10px; */
 }
 
 .fwd {
-    right: 10px;
+    right: 0px;
 }
 
 .slide-position {
+    margin: 10px 0;
     display: flex;
     justify-content: center;
     width: 100%;
-    position: absolute;
     bottom: 5px;
 }
 
@@ -146,9 +153,6 @@
     .js-challenge {
         padding: 0 55px;
     }
-    .work-item-container {
-        padding: 0 25px;
-    }
     .work-desc > p {
         font-size: 1em;
         margin-top: 5px;
@@ -157,19 +161,15 @@
 
 
 @media screen and (min-width: 576px) {
-    .work-item-container {
-        padding: 0 75px;
-    }
+
 }
 
 @media screen and (min-width: 768px) {
     .work-item-container {
         flex-direction: column-reverse;
-        padding: 0 70px;
     }
     .project-video {
-        margin-bottom: 50px;
-        margin-top: 0;
+        margin-top: 10px;
     }
     .work-presentation {
         display: flex;
@@ -178,14 +178,14 @@
     }
     .work-title {
         font-size: 1.75em;
-        margin: 10px 0;
+        margin: 0;
     }
     .work-desc {
-        padding: 0 30px;
+        padding: 0 20px;
         justify-content: center;
     }
     .work-desc > p {
-        margin-top: 15px;
+        margin-top: 10px;
     }
     .small-portrait {
         display: block;
@@ -194,7 +194,6 @@
 
 @media screen and (min-width: 992px) {
     .work-item-container {
-        padding: 0 100px;
         flex-direction: row;
     }
     .project-video {

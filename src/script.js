@@ -1,4 +1,67 @@
-const titles = document.querySelectorAll('.education-title');
+const burguerBtn = document.querySelector('.burguer-btn');
+const burguerMenu = document.querySelector('.burguer-menu');
+const burguerLines = document.querySelectorAll('.burguer-line');
+const burguerLinks = document.querySelectorAll('.burguer-link');
+
+burguerClose = true;
+
+const closeMenu = () => {
+    if(burguerClose) {
+        burguerLines[0].style.transform = "translateY(10px)";
+        burguerLines[2].style.transform = "translateY(-10px)";
+        burguerMenu.style.transform = "translateX(0)"
+        
+        setTimeout(() => {
+            burguerLines[0].style.display = "none";
+            burguerLines[1].style.width = "100%";
+            burguerLines[1].style.transform = "rotate(45deg)";
+            burguerLines[2].style.display = "none";
+            burguerLines[3].style.width = "60%";
+            burguerLines[3].style.transform = "rotate(-45deg)";
+        }, 300);
+
+        burguerClose = !burguerClose
+    } else {
+        burguerLines[1].style.transform = "rotate(0deg)";
+        burguerLines[3].style.transform = "rotate(0deg)";
+        burguerMenu.style.transform = "translateX(100%)"
+
+        setTimeout(() => {
+            burguerLines[0].style.display = "block";
+            burguerLines[2].style.display = "block";
+            burguerLines[3].style.width = "0";
+        }, 300)
+
+        setTimeout(() => {
+            burguerLines[0].style.transform = "translateY(0)";
+            burguerLines[1].style.width = "80%";
+            burguerLines[2].style.transform = "translateY(0)";
+        }, 400);
+
+        burguerClose = !burguerClose
+    }
+}
+
+burguerBtn.addEventListener('click', closeMenu);
+burguerLinks.forEach(link => link.addEventListener('click', closeMenu))
+
+const header = document.querySelector('header')
+
+let scrollPosition = 0;
+
+window.addEventListener('scroll', e => {
+
+    let currentScroll = e.target.scrollingElement.scrollTop;
+
+    scrollPosition < currentScroll ?
+    header.style.height = '0':
+    header.style.height = '10vh';
+
+    scrollPosition = e.target.scrollingElement.scrollTop;
+
+})
+
+const titles = Array.from(document.querySelectorAll('.education-title'));
 
 titles.forEach(title => title.addEventListener('click', e => {
     const brief = e.path[2].childNodes[5];
@@ -25,7 +88,7 @@ const width = slide.offsetWidth;
 workBtn.forEach(btn => btn.addEventListener('click', e => {
     const action = e.target.dataset.action;
     
-    action === "fwd" ? slide.scrollLeft += width : slide.scrollLeft -= width;    
+    action === "fwd" ? slide.scrollLeft += width : slide.scrollLeft -= width;   
 }))
 
 slide.addEventListener('scroll', e => {
