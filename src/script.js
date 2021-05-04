@@ -1,3 +1,31 @@
+const mainLoader = document.querySelector('.main-loader');
+const body = document.querySelector('body');
+window.addEventListener("loadstart", console.log('loading'))
+
+const sectionsP = document.querySelectorAll('.section-name > p');
+
+window.addEventListener("load", function(e) {
+    mainLoader.style.display = "none";
+    body.style.display = "block";
+
+    let interval = 100;
+
+    function randTime (min, max) {
+        return Math.random() * (max - min) + min;
+    }   
+
+    for (let index = 0; index < sectionsP.length; index++) {
+
+        setTimeout(() => {
+            sectionsP[index].style.display = 'block'
+        }, interval)
+
+        interval += randTime(100, 400)        
+    }
+
+    console.log(e)
+  });
+
 const burguerBtn = document.querySelector('.burguer-btn');
 const burguerMenu = document.querySelector('.burguer-menu');
 const burguerLines = document.querySelectorAll('.burguer-line');
@@ -45,7 +73,7 @@ const closeMenu = () => {
 burguerBtn.addEventListener('click', closeMenu);
 burguerLinks.forEach(link => link.addEventListener('click', closeMenu))
 
-const header = document.querySelector('header')
+const nav = document.querySelector('nav')
 
 let scrollPosition = 0;
 
@@ -54,12 +82,26 @@ window.addEventListener('scroll', e => {
     let currentScroll = e.target.scrollingElement.scrollTop;
 
     scrollPosition < currentScroll ?
-    header.style.height = '0':
-    header.style.height = '10vh';
+    nav.style.height = '0':
+    nav.style.height = '10vh';
 
     scrollPosition = e.target.scrollingElement.scrollTop;
 
 })
+
+// MAIN
+// const sections = document.querySelectorAll('.section-name');
+// let position = section.getBoundingClientRect();
+// console.log(position.top)
+// console.log(position.bottom)
+
+
+// sections.forEach(section => section.addEventListener('touchstart', e => {
+//     section.style.transform = "scale(1.2)"
+// }))
+// sections.forEach(section => section.addEventListener('touchend', e => {
+//     section.style.transform = "scale(1)"
+// }))
 
 const titles = Array.from(document.querySelectorAll('.education-title'));
 
@@ -122,10 +164,6 @@ slide.addEventListener('scroll', e => {
     }
 
 })
-
-// document.addEventListener('onload', () => {
-//     console.log('the page has loaded')
-// })
 
 const otherTags = document.querySelectorAll('.others-tags > label');
 const othersImg = document.querySelectorAll('.others-img');

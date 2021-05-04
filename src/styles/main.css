@@ -9,10 +9,43 @@
     scroll-behavior: smooth;
 }
 
+.main-loader {
+    color: var(--p-color);
+    font-family: "Lato", sans-serif;
+    font-size: .8em;
+    position: fixed;
+    top: 50vh;
+    width: 100%;
+    padding: 15px 0;
+    animation: mainLoader 3s infinite ease-in;
+}
+
+@keyframes mainLoader {
+    50% {opacity: .25;}
+    100% {opacity: 1;}
+}
+
+.icon-point-up {
+    position: absolute;
+    left: 25%;
+    bottom: 0;
+    margin-right: 5px;
+    animation: loaderPointer 5s infinite ;
+}
+
+@keyframes loaderPointer {
+    50% {transform: translateX(50vw);}
+}
+
+h1 {
+    text-align: center;
+}
+
 body {
     height: 100vh;
     margin: 0;
     background: var(--main-back-color);
+    display: none;
 }
 
 a {
@@ -21,7 +54,7 @@ a {
 a:active {
     color: white;
 }
-h2, p {
+h1, h2, p {
     margin: 0;
 }
 
@@ -29,14 +62,15 @@ h2, p {
     width: 50px;
     height: 50px;
     padding: 10px;
+    margin-right: 10px;
     box-sizing: border-box;
     border-radius: 15px;
     overflow: hidden;
-    background: rgba(80, 80, 80, 0.75);
-    position: fixed;
+    /* background: rgba(80, 80, 80, 0.75); */
+    position: relative;
     z-index: 3;
-    top: 10px;
-    right: 10px;
+    /* top: 10px;
+    right: 10px; */
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -67,11 +101,12 @@ h2, p {
 .burguer-menu {
     background-color: var(--title-color);
     opacity: .9;
-    height: 50vh;
+    height: 90vh;
     width: 100%;
     position: fixed;
     z-index: 2;
     right: 0;
+    top: 10vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -87,12 +122,12 @@ h2, p {
     margin: 20px 40px;
 }
 
-header {
+nav {
     background-color: var(--main-back-color);
     width: 100%;
     height: 10vh;
-    display: none;
-    justify-content: flex-end;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     position: fixed;
     z-index: 2;
@@ -100,7 +135,64 @@ header {
     transition: all .3s;
 }
 
-.header-link {
+.greetings {
+    color: var(--p-color);
+    font-family: "Lato", sans-serif;
+    letter-spacing: var(--p-letter-spacing);
+    font-size: 18px;
+    position: absolute;
+    z-index: -1;
+    bottom: 10px;
+    left: 23px;
+}
+
+.logo {
+    margin: 0 20px;
+    position: relative;
+    width: 150px;
+    overflow: hidden;
+}
+
+.logo::after,
+.logo::before {
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: var(--main-back-color);
+    height: 2px;
+    z-index: 1;
+    animation: cloudEffect 10s infinite ease-in-out;
+}
+
+.logo::before {
+    bottom: 20px;
+    width: 20px;
+}
+
+.logo::after {
+    bottom: 15px;
+    width: 30px;
+}
+
+@keyframes cloudEffect {
+    50% {transform: translateX(500%);}
+}
+
+.icon-cloud {
+    color: crimson;
+    font-size: 50px;
+    animation: cloud 6s infinite;
+}
+
+@keyframes cloud {
+    50% {opacity: .5}
+}
+
+.nav-links {
+    display: none;
+}
+
+.nav-link {
     margin: 0 20px;
     color: rgb(209, 189, 189);
 }
@@ -109,7 +201,7 @@ header {
     height: 100%;
     display: flex;
     flex-direction: column;
-    /* justify-content: stretch; */
+    position: relative;
 }
 
 .section {
@@ -124,30 +216,38 @@ header {
     
 }
 
-.section:hover {
+/* .section:hover {
     flex-grow: 6;
 }
 
 .section:hover .brief {
     opacity: 1;
-    /* transform: translateX(0); */
 }
 .section:hover .brief::after,
 .section:hover .brief::before {
     transform: translateX(-30px);
-}
+} */
 
 .section-name {
     color: rgb(209, 189, 189);
     position: absolute;
-    top: 50;
+    z-index: 3s;
+    height: 35px;
+    width: 100px;
     transition: all 1s;
     display: flex;
+    justify-content: center;
+    cursor: pointer;
+    /* overflow: hidden; */
 }
 
-.section-name:hover {
-    display: flex;
+.section-name > p {
+    display: none;
 }
+
+/* .section-name:hover {
+    display: flex;
+} */
 
 .brief-title {
     color: var(--title-color);
@@ -428,10 +528,10 @@ background: rgb(116, 105, 74);
     .burguer-btn {
         display: none;
     }
-    header {
-        display: flex;
+    nav {
+        /* display: flex;
         justify-content: flex-end;
-        align-items: center;
+        align-items: center; */
     }
     .main {
         flex-direction: row;
@@ -439,7 +539,7 @@ background: rgb(116, 105, 74);
     }
 
     .section-name {
-        display: block;
+        flex-direction: row;
     }
     .brief {
         height: 100%;
