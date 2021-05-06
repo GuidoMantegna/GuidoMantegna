@@ -10,27 +10,43 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/styles/main.css">
+    <link rel="stylesheet" href="/src/styles/about.css">
     <link rel="stylesheet" href="/src/styles/works.css">
     <link rel="stylesheet" href="/src/styles/skills.css">
     <link rel="stylesheet" href="/src/styles/others.css">
     <link rel="stylesheet" href="/src/styles/icons-style.css">
 </head>
 
-<div class="main-loader">
-    <i class="icon-point-up"></i>
-    <h1>guidomantegna.com</h1>
-</div>
-
 <body>
 
+    <!-- LEFT SIDEBAR -->
+    <div class="social">
+        <div></div>
+        <a href="mailto:mantegnaguido@gmail.com"><i class="icon-mail4"></i></a>
+        <a href="https://www.linkedin.com/in/guidomantegna/"><i class="icon-linkedin"></i></a>
+        <a href="https://github.com/GuidoMantegna"><i class="icon-github"></i></a>
+        <a href="https://instagram.com/guidomantegna?igshid=6ggwr0edtp83"><i class="icon-instagram"></i></a>
+        <a href="https://twitter.com/guidomantegna"><i class="icon-twitter"></i></a>
+    </div>
 
+    <!-- RIGHT SIDEBAR -->
+    <div class="presentation">
+        <div class="avatar-main"></div>
+        <p>I'm a<br> frontend<br> dev<br> and<br> i love<br> to build<br> things.</p>
+        <div class="presentation-line"></div>
+    </div>
+
+    <!-- BURGER MENU -->
     <div class="burguer-menu">
+        <a class="burguer-link" href="#home"><span>0. home</span></a>
         <a class="burguer-link" href="#about"><span>1. about</span></a>
         <a class="burguer-link" href="#work"><span>2. work</span></a>
         <a class="burguer-link" href="#skills"><span>3. skills</span></a>
         <a class="burguer-link" href="#others"><span>4. others</span></a>
+        <a class="burguer-link" href="#contact"><span>5. contact</span></a>
     </div>
 
+    <!-- NAVBAR -->
     <nav>
         <div class="logo">
             <i class="icon-cloud"></i>
@@ -51,12 +67,12 @@
             <a class="nav-link" href="#others"><span>4. others</span></a>
         </div>
     </nav>
-
-<!-- MAIN -->
-    <div class="main">
+    
+    <!-- MAIN -->
+    <div class="main" id="home">
 
         <div class="section">
-            <div class="section-name">
+            <div class="section-name" data-name="about">
                 <p>a</p>
                 <p>b</p>
                 <p>o</p>
@@ -71,7 +87,7 @@
             </div>
         </div>
         <div class="section">
-            <div class="section-name">
+            <div class="section-name" data-name="work">
                 <p>w</p>
                 <p>o</p>
                 <p>r</p>
@@ -85,7 +101,7 @@
             </div>
         </div>
         <div class="section">
-            <div class="section-name">
+            <div class="section-name" data-name="skills">
                 <p>s</p>
                 <p>k</p>
                 <p>i</p>
@@ -101,7 +117,7 @@
             </div>
         </div>
         <div class="section">
-            <div class="section-name">
+            <div class="section-name" data-name="skills">
                 <p>o</p>
                 <p>t</p>
                 <p>h</p>
@@ -122,8 +138,7 @@
 <!-- ABOUT -->
     <div class="about content" id="about">
 
-        <div class="about-main-container">
-
+    <div class="about-main-container">
         
         <h2 class="content-title">< about ></h2>
 
@@ -131,10 +146,7 @@
             <p class="about-me">
                 >> After many years working at administration sector in some enterprises, i started with my own business. Since almost two years, i've been learning web development and now i strongly want to continue learning in some project. 
             </p>
-        </div>
-            
-        <!-- <div class="about-main"> -->
-                
+        </div>                
         
         <h3 class="education-header">education</h3>
 
@@ -229,9 +241,8 @@
             <p class="education-brief">LA MARIA AGROP. - Control y gestión de campañas | Acuerdos comerciales y promociones con agronomías | Seguimiento y gestión de cobranzas | Cuentas corrientes</p>
         </div>
 
-        <!-- </div> -->
         <h2 class="content-title">< /about ></h2>
-        </div>
+    </div>
     </div>
 
 <!-- WORK -->
@@ -426,6 +437,18 @@
             </div>
 
             <h2 class="content-title">< /others ></h2>
+        </div>
+    </div>
+
+<!-- CONTACT -->
+    <div class="contact" id="contact">
+        <p class="contact-p">I'm Guido Mantegna, and i love to build things.</p>
+        <div class="contact-links">
+            <a href="mailto:mantegnaguido@gmail.com"><i class="icon-mail4"></i></a>
+            <a href="https://www.linkedin.com/in/guidomantegna/"><i class="icon-linkedin"></i></a>
+            <a href="https://github.com/GuidoMantegna"><i class="icon-github"></i></a>
+            <a href="https://instagram.com/guidomantegna?igshid=6ggwr0edtp83"><i class="icon-instagram"></i></a>
+            <a href="https://twitter.com/guidomantegna"><i class="icon-twitter"></i></a>
         </div>
     </div>
 

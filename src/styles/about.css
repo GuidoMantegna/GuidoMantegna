@@ -1,0 +1,122 @@
+.about-main-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-grow: 1;
+}
+
+.avatar {
+    background-image: url(/src/images/Guido-Mantegna-2.JPG);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    box-sizing: border-box;
+    width: 100%;
+    height: 200px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.avatar::after, 
+.avatar::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 7.5px;
+    opacity: .5;
+    transition: all 3s;
+}
+
+.avatar::after {
+    background: darkcyan;
+    bottom: 5%;
+}
+.avatar::before {
+    background: rgb(197, 168, 6);
+    bottom: 15%;
+}
+
+.about-me {
+    color: var(--p-color);
+    width: 45%;
+    letter-spacing: var(--p-letter-spacing);
+    font-size: .7em;
+    background-color: rgba(80, 80, 80, 0.5);
+    text-shadow: 1px 1px rgb(68, 68, 68);
+    box-shadow: -3px 3px rgb(100, 100, 100);
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    padding: 10px;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+}
+
+.education-header {
+    color: var(--title-color);
+    letter-spacing: var(--p-letter-spacing);
+    position: relative;
+    margin: 0;
+    text-align: end;
+    font-weight: 400;
+}
+.education-header::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 60%;
+    bottom: 40%;
+    height: 2px;
+    background: darkcyan;
+    opacity: .25;
+}
+.education {
+    margin-top: 5px;
+    letter-spacing: var(--p-letter-spacing);  
+}
+
+.line-num {
+    font-family: 'Mitr', sans-serif;
+    color: rgb(209, 189, 189);
+    font-weight: lighter;
+    font-size: 10px;
+    min-width: 37px;
+}
+
+.education-date {
+    display: flex;
+    color: var(--p-color);
+}
+.education-date > p {
+    font-size: .75em;
+}
+.education-title {
+    display: flex;
+    cursor: pointer;
+}
+.education-title > h6 {
+    font-size: .8em;
+    color: var(--link-color);
+    margin-bottom: 4px;
+    margin-top: 0;
+}
+.education > p {
+    font-size: .75em;
+    color: var(--p-color);
+}
+.education-brief {
+    height: 0;
+    overflow: hidden;
+    padding-left: 37px;
+}
+
+@media screen and (min-width: 768px) {
+    .avatar {
+        height: 290px;
+    }
+}

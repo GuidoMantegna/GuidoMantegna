@@ -1,12 +1,21 @@
 const mainLoader = document.querySelector('.main-loader');
 const body = document.querySelector('body');
-window.addEventListener("loadstart", console.log('loading'))
+// window.addEventListener("loadstart", console.log('loading'))
+
+// SECTION NAME ANIMATION
 
 const sectionsP = document.querySelectorAll('.section-name > p');
+const social = document.querySelector('.social');
+const presentation = document.querySelector('.presentation');
+const avatar = document.querySelector('.avatar-main');
+const viewportWidth = body.offsetWidth;
 
 window.addEventListener("load", function(e) {
-    mainLoader.style.display = "none";
-    body.style.display = "block";
+
+    social.style.transform = "translateY(0)";
+    presentation.style.transform = "translateY(0)";
+
+    setTimeout(() => {avatar.style.transform = "translateX(0)"}, 2000);
 
     let interval = 100;
 
@@ -22,9 +31,68 @@ window.addEventListener("load", function(e) {
 
         interval += randTime(100, 400)        
     }
-
-    console.log(e)
   });
+
+// SECTION NAME OPENER
+
+const sections = document.querySelectorAll('.section');
+const sectionName = Array.from(document.querySelectorAll('.section-name'));
+const briefs = document.querySelectorAll('.brief');
+
+briefs.forEach(brief => brief.addEventListener('click', e => console.log(brief.lastElementChild)))
+
+sectionName.forEach(section => section.addEventListener('click', e => {
+    if(viewportWidth < 768) {
+        avatar.style.transform = "translateX(150%)";
+        setTimeout(() => {
+            presentation.style.transform = "translateY(100%)"
+        }, 1000)
+    }
+
+    let sectionIndex = sectionName.indexOf(section);
+
+    const openSection = num => {
+        for (let index = 0; index < sections.length; index++) {
+            if(index === num) {
+                sectionName[index].style.display = 'none';
+                sections[index].style.flexGrow = '6'; 
+                briefs[index].style.opacity = '1';
+                setTimeout(() => {
+                    briefs[index].firstElementChild.style.transform = "translateY(0)";
+                    briefs[index].childNodes[3].style.transform = "translateY(0)";
+                    briefs[index].lastElementChild.style.opacity = "1";
+                }, 1000);
+            } else {
+                briefs[index].style.opacity = '0';
+                briefs[index].firstElementChild.style.transform = "translateY(-100vh)";
+                briefs[index].childNodes[3].style.transform = "translateY(100vh)";
+                briefs[index].lastElementChild.style.opacity = "0";
+                sectionName[index].style.display = 'flex';
+                sections[index].style.flexGrow = '1'; 
+            }
+        }
+    }
+
+
+    switch (sectionIndex) {
+        case 0:
+            openSection(0);
+            break;
+        case 1:
+            openSection(1);
+            break;
+        case 2:
+            openSection(2);
+            break;
+        case 3:
+            openSection(3);
+            break;
+
+    }
+
+}))
+
+// BURGUER MENU
 
 const burguerBtn = document.querySelector('.burguer-btn');
 const burguerMenu = document.querySelector('.burguer-menu');
@@ -73,6 +141,8 @@ const closeMenu = () => {
 burguerBtn.addEventListener('click', closeMenu);
 burguerLinks.forEach(link => link.addEventListener('click', closeMenu))
 
+// HIDE NAVBAR / RIGHT SIDEBAR ON SMALL DEVICES
+
 const nav = document.querySelector('nav')
 
 let scrollPosition = 0;
@@ -81,9 +151,17 @@ window.addEventListener('scroll', e => {
 
     let currentScroll = e.target.scrollingElement.scrollTop;
 
-    scrollPosition < currentScroll ?
-    nav.style.height = '0':
-    nav.style.height = '10vh';
+    if(scrollPosition < currentScroll) {
+        nav.style.height = '0';
+        if(viewportWidth < 768) {
+            avatar.style.transform = "translateX(150%)";
+            setTimeout(() => {
+                presentation.style.transform = "translateY(100%)"
+            }, 1000)
+        }
+    } else {
+        nav.style.height = '10vh';
+    }
 
     scrollPosition = e.target.scrollingElement.scrollTop;
 
@@ -103,6 +181,8 @@ window.addEventListener('scroll', e => {
 //     section.style.transform = "scale(1)"
 // }))
 
+
+// SPREAD EDUCATION 
 const titles = Array.from(document.querySelectorAll('.education-title'));
 
 titles.forEach(title => title.addEventListener('click', e => {
@@ -121,6 +201,7 @@ titles.forEach(title => title.addEventListener('click', e => {
     }
 }))
 
+// WORK SLIDE
 
 const workBtn = document.querySelectorAll('.work-main-container > label')
 const slide = document.querySelector('.work-slide')
@@ -164,6 +245,9 @@ slide.addEventListener('scroll', e => {
     }
 
 })
+
+
+// OTHERS SELECTOR
 
 const otherTags = document.querySelectorAll('.others-tags > label');
 const othersImg = document.querySelectorAll('.others-img');

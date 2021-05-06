@@ -1,3 +1,13 @@
+/* Z-INDEX
+    .burguer-btn 3
+    .burguer-menu 2
+    .nav 2
+    .greetings -1
+    .logo-before/after 1
+    .section-name 4
+    .about-me 1
+*/
+
 :root {
     --main-back-color: rgb(30, 44, 49);
     --main-back-color-deg: rgba(30, 44, 49, .6);
@@ -9,45 +19,6 @@
     scroll-behavior: smooth;
 }
 
-.main-loader {
-    color: var(--p-color);
-    font-family: "Lato", sans-serif;
-    font-size: .8em;
-    position: fixed;
-    top: 50vh;
-    width: 100%;
-    padding: 15px 0;
-    animation: mainLoader 3s infinite ease-in;
-}
-
-@keyframes mainLoader {
-    50% {opacity: .25;}
-    100% {opacity: 1;}
-}
-
-.icon-point-up {
-    position: absolute;
-    left: 25%;
-    bottom: 0;
-    margin-right: 5px;
-    animation: loaderPointer 5s infinite ;
-}
-
-@keyframes loaderPointer {
-    50% {transform: translateX(50vw);}
-}
-
-h1 {
-    text-align: center;
-}
-
-body {
-    height: 100vh;
-    margin: 0;
-    background: var(--main-back-color);
-    display: none;
-}
-
 a {
     text-decoration: none;
 }
@@ -57,20 +28,99 @@ a:active {
 h1, h2, p {
     margin: 0;
 }
+h1 {
+    text-align: center;
+}
+body {
+    margin: 0;
+    background: var(--main-back-color);
+    padding: 0 25px;
+}
 
+/* RIGHT SIDEBAR */
+.social {
+    position: fixed;
+    left: 40px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    transform: translateY(-100%);
+    transition: transform 4s ease-out;
+}
+
+.social > div {
+    width: 3px;
+    height: 30vh;
+    background-color: var(--p-color);
+    animation: social 4s 1 5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+@keyframes social {
+    50% {height: 35vh}
+}
+
+.social > a {
+    color: var(--p-color);
+    font-size: 25px;
+    margin: 20px 0;
+}
+
+/* LEFT SIDEBAR */
+.presentation {
+    position: fixed;
+    right: 15px;
+    bottom: 0;
+    height: 100vh;
+    z-index: -1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    color: var(--p-color);
+    transform: translateY(100%);
+    transition: transform 2s ease-out;
+}
+
+.avatar-main {
+    background-image: url('/src/images/avatar-small.jpg');
+    background-position: center;
+    background-size: cover;
+    margin-top: 20px;
+    width: 50px;
+    height: 50px;
+    border-right: 3px solid var(--p-color);
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    transform: translateX(150%);
+    transition: transform 1s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+.presentation > p {
+    font-family: "Lato", sans-serif;
+    letter-spacing: var(--p-letter-spacing);
+    font-size: 14px;
+    text-align: end;
+    padding: 10px 0;
+    z-index: 1;
+    border: 1;
+}
+
+.presentation-line {
+    width: 3px;
+    height: 35%;
+    background-color: var(--p-color);
+}
+
+/* BURGUER BUTTON */
 .burguer-btn {
     width: 50px;
     height: 50px;
     padding: 10px;
-    margin-right: 10px;
     box-sizing: border-box;
     border-radius: 15px;
     overflow: hidden;
-    /* background: rgba(80, 80, 80, 0.75); */
     position: relative;
     z-index: 3;
-    /* top: 10px;
-    right: 10px; */
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -79,7 +129,7 @@ h1, h2, p {
 
 .burguer-line {
     height: 5px;
-    background-color: cornsilk;
+    background-color: var(--link-color);
     transition: transform .3s; 
 }
 
@@ -98,6 +148,8 @@ h1, h2, p {
     top: 23px;
 }
 
+
+/* BURGUER MENU */
 .burguer-menu {
     background-color: var(--title-color);
     opacity: .9;
@@ -116,25 +168,28 @@ h1, h2, p {
 
 .burguer-link {
     color: rgb(209, 189, 189);
-    font-size: 1.1em;
-    /* font-family: "Lato", sans-serif; */
+    font-size: 1.2em;
     letter-spacing: var(--p-letter-spacing);
     margin: 20px 40px;
+    cursor: pointer;
 }
 
+/* NAVBAR */
 nav {
     background-color: var(--main-back-color);
-    width: 100%;
-    height: 10vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: fixed;
+    right: 15px;
+    left: 15px;
     z-index: 2;
     overflow: hidden;
     transition: all .3s;
 }
 
+
+/* LOGO */
 .greetings {
     color: var(--p-color);
     font-family: "Lato", sans-serif;
@@ -147,7 +202,6 @@ nav {
 }
 
 .logo {
-    margin: 0 20px;
     position: relative;
     width: 150px;
     overflow: hidden;
@@ -188,142 +242,110 @@ nav {
     50% {opacity: .5}
 }
 
+/* NAVBAR LINKS */
 .nav-links {
     display: none;
 }
 
 .nav-link {
-    margin: 0 20px;
+    margin-left: 20px;
     color: rgb(209, 189, 189);
 }
 
+/* HOME */
 .main {
-    height: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     position: relative;
+    box-sizing: border-box;
+    padding-top: 10vh;
 }
 
 .section {
     flex: 1 1 0;
-    transition: flex-grow 2s cubic-bezier(0.68, -0.6, 0.32, 1.6), opacity 2s ease;
+    transition: flex-grow 2s cubic-bezier(0.68, -0.6, 0.32, 1.6);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow: hidden;
     position: relative;
-    
 }
-
-/* .section:hover {
-    flex-grow: 6;
-}
-
-.section:hover .brief {
-    opacity: 1;
-}
-.section:hover .brief::after,
-.section:hover .brief::before {
-    transform: translateX(-30px);
-} */
 
 .section-name {
     color: rgb(209, 189, 189);
     position: absolute;
-    z-index: 3s;
+    z-index: 1;
     height: 35px;
     width: 100px;
     transition: all 1s;
     display: flex;
     justify-content: center;
     cursor: pointer;
-    /* overflow: hidden; */
 }
 
 .section-name > p {
     display: none;
 }
 
-/* .section-name:hover {
-    display: flex;
-} */
-
 .brief-title {
     color: var(--title-color);
     margin-bottom: 20px;
+    transform: translateY(-100vh);
+    transition: all 1s ease-out;
 }
 .brief-desc {
     color: var(--p-color);
     letter-spacing: var(--p-letter-spacing);
     line-height: var(--p-line-height);
     font-size: .9em;
+    overflow: hidden;
+    transform: translateY(100vh);
+    transition: transform 1s;
 }
 
 .brief {
     font-family: 'Lato', sans-serif;
-    /* border-top: 1px solid rgb(99, 141, 133);
-    border-bottom: 1px solid rgb(99, 141, 133); */
     padding: 30px;
     opacity: 0;
     min-height: 250px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 70%;
-    transition: all 3s;
+    transition: opacity 1s ease-in;
     position: relative;
 }
 
-.brief::after,
-.brief::before {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background: darkcyan;
-    opacity: .25;
-    transition: all 3s;
-}
-
-.brief::after {
-    bottom: 5px;
-    transform: translateX(150%);
-}
-.brief::before {
-    top: 5px;
-    transform: translateX(-150%);
-}
-
 .about-brief {
-    background: linear-gradient(to right, var(--main-back-color), var(--main-back-color-deg), var(--main-back-color)), url(/src/images/Guido-Mantegna-2.JPG);
+    background: linear-gradient(to top, var(--main-back-color), var(--main-back-color-deg), var(--main-back-color)), url(/src/images/Guido-Mantegna-2.JPG);
     background-size: cover;
     background-position: left;
 }
 .work-brief {
-    background: linear-gradient(to right, var(--main-back-color), var(--main-back-color-deg), var(--main-back-color)), url(/src/images/work.jpeg);
+    background: linear-gradient(to top, var(--main-back-color), var(--main-back-color-deg), var(--main-back-color)), url(/src/images/work.jpeg);
     background-size: cover;
 }
 .skills-brief {
-    background: linear-gradient(to right, var(--main-back-color), var(--main-back-color-deg), var(--main-back-color)), url(/src/images/skills.jpg);
+    background: linear-gradient(to top, var(--main-back-color), var(--main-back-color-deg), var(--main-back-color)), url(/src/images/skills.jpg);
     background-size: cover;
 }
 .others-brief {
-    background: linear-gradient(to right, var(--main-back-color), var(--main-back-color-deg), var(--main-back-color)), url(/src/images/Guido-Mantegna-1.jpeg);
+    background: linear-gradient(to top, var(--main-back-color), var(--main-back-color-deg), var(--main-back-color)), url(/src/images/Guido-Mantegna-1.jpeg);
     background-size: cover;
     background-position: right;
 }
 .more-link {
     color: var(--link-color);
     margin-top: 20px;
+    opacity: 0;
+    transition: opacity 2s;
 }
 
 .content {
     font-family: 'Lato', sans-serif;
     min-height: 100vh;
     box-sizing: border-box;
-    padding: 0 25px; /* recently added */
     display: flex;
     flex-direction: column;
     position: relative;
@@ -335,152 +357,6 @@ nav {
     margin: 7.5px;
 }
 
-/* ABOUT */
-
-.about-main-container {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    flex-grow: 1;
-}
-
-.avatar {
-    background-image: url(/src/images/Guido-Mantegna-2.JPG);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: top;
-    /* border-radius: 5px; */
-    box-sizing: border-box;
-    /* border: 2px solid rgba(0, 139, 139, .5); */
-    /* padding: 10px; */
-    width: 100%;
-    height: 200px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
-}
-
-.avatar::after, 
-.avatar::before {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 7.5px;
-    
-    opacity: .5;
-    transition: all 3s;
-}
-
-.avatar::after {
-    background: darkcyan;
-    bottom: 5%;
-}
-.avatar::before {
-    background: rgb(197, 168, 6);
-    bottom: 15%;
-}
-
-/* .filter {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(247, 194, 62, .1);
-} */
-
-/* .about-main {
-    padding: 5px 0;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-} */
-
-.about-me {
-    color: var(--p-color);
-    width: 45%;
-    letter-spacing: var(--p-letter-spacing);
-    font-size: .7em;
-    /* text-align: justify; */
-    background-color: rgba(80, 80, 80, 0.5);
-    text-shadow: 1px 1px rgb(68, 68, 68);
-    box-shadow: -3px 3px rgb(100, 100, 100);
-    border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
-    padding: 10px;
-    position: absolute;
-    /* bottom: 0; */
-    right: 0;
-    /* top: 0; */
-    z-index: 1;
-}
-
-.education-header {
-    color: var(--title-color);
-    letter-spacing: var(--p-letter-spacing);
-    position: relative;
-    margin: 0;
-    text-align: end;
-    font-weight: 400;
-}
-.education-header::after {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 60%;
-    bottom: 40%;
-    height: 2px;
-    background: darkcyan;
-    opacity: .25;
-}
-.education {
-    margin-top: 5px;
-    letter-spacing: var(--p-letter-spacing);
-    /* transition: all .5s; */
-    
-}
-
-.line-num {
-    font-family: 'Mitr', sans-serif;
-    color: rgb(209, 189, 189);
-    font-weight: lighter;
-    font-size: 10px;
-    min-width: 37px;
-}
-
-.education-date {
-    display: flex;
-    color: var(--p-color);
-}
-.education-date > p {
-    font-size: .75em;
-}
-.education-title {
-    display: flex;
-    cursor: pointer;
-}
-.education-title > h6 {
-    font-size: .8em;
-    color: var(--link-color);
-    margin-bottom: 4px;
-    margin-top: 0;
-}
-.education > p {
-    font-size: .75em;
-    color: var(--p-color);
-}
-.education-brief {
-    height: 0;
-    overflow: hidden;
-    padding-left: 37px;
-    /* transition: all .5s; */
-}
-
 /* SCROLLBAR */
 /* width */
 ::-webkit-scrollbar {
@@ -489,7 +365,6 @@ nav {
 /* Track */
 ::-webkit-scrollbar-track {
 background: rgb(50, 50, 50); 
-
 }
 /* Handle */
 ::-webkit-scrollbar-thumb {
@@ -501,56 +376,124 @@ border-radius: 5px;
 background: rgb(116, 105, 74); 
 }
 
-@media screen and (min-width: 375px) {
-    .avatar {
-        /* height: 150px; */
-    }
+/* CONTACT */
+.contact {
+    width: 100%;
 }
 
+.contact-links {
+    display: flex;
+    justify-content: center;
+}
+
+.contact-links > a {
+    color: var(--p-color);
+    font-size: 20px;
+    margin: 15px 10px;
+}
+
+.contact-p {
+    color: var(--p-color);
+    letter-spacing: var(--p-letter-spacing);
+    font-family: "Lato", sans-serif;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+@media screen and (min-width: 375px) {
+}
 @media screen and (min-width: 425px) {
-    .avatar {
-        /* height: 190px; */
-    }
 }
 @media screen and (min-width: 576px) {
-    .content {
+    .presentation {
+        display: flex;
+    }
+    nav {
+        right: 15%;
+        left: 15%;
+    }
+    body {
         padding: 0 15%;
     }
     .avatar {
-        /* background: linear-gradient(to right, rgba(30, 44, 49, 0), var(--main-back-color)), url(/src/images/Guido-Mantegna-2.JPG); */
-        /* background-size: contain; */
-        /* background-repeat: no-repeat; */
         height: 210px;
     }
 }
 
 @media screen and (min-width: 768px){
-    .burguer-btn {
-        display: none;
+    /* LOGO */
+    .logo {
+        width: 195px;
     }
-    nav {
-        /* display: flex;
-        justify-content: flex-end;
-        align-items: center; */
+    .logo::before {
+        bottom: 26px;
     }
-    .main {
-        flex-direction: row;
-        height: 90%;
+    .logo::after {
+        bottom: 20px;
+    }
+    .icon-cloud {
+        font-size: 70px;
+    }
+    .greetings {
+        font-size: 22px;
+        bottom: 15px;
+        left: 35px;
     }
 
+    /* LEFT SIDEBAR */
+    .social {
+        display: flex;
+    }
+    /* RIGHT SIDEBAR */
+    .presentation {
+        right: 40px;
+    }
+    .avatar-main {
+        width: 100px;
+        height: 100px;
+    }
+    .presentation > p {
+        font-size: 16px;
+    }
+
+    /* HOME */
     .section-name {
-        flex-direction: row;
+        font-size: 1.5em;
+    }
+    .about-brief {
+        background: linear-gradient(to right, var(--main-back-color), var(--main-back-color-deg), var(--main-back-color)), url(/src/images/Guido-Mantegna-2.JPG);
+        background-size: cover;
+        background-position: left;
+    }
+    .work-brief {
+        background: linear-gradient(to right, var(--main-back-color), var(--main-back-color-deg), var(--main-back-color)), url(/src/images/work.jpeg);
+        background-size: cover;
+    }
+    .skills-brief {
+        background: linear-gradient(to right, var(--main-back-color), var(--main-back-color-deg), var(--main-back-color)), url(/src/images/skills.jpg);
+        background-size: cover;
+    }
+    .others-brief {
+        background: linear-gradient(to right, var(--main-back-color), var(--main-back-color-deg), var(--main-back-color)), url(/src/images/Guido-Mantegna-1.jpeg);
+        background-size: cover;
+        background-position: right;
     }
     .brief {
         height: 100%;
+        padding: 0 70px;
     }
-    .avatar {
-        height: 290px;
-    }
+
 }
 
 @media screen and (min-width: 992px) {
-    .content {
+    .burguer-btn {
+        display: none;
+    }
+    .presentation-line {
+        flex-grow: 1;
+    }
+    .body {
         padding: 0 20%;
     }
 }
