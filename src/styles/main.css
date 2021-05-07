@@ -37,10 +37,11 @@ body {
     padding: 0 25px;
 }
 
-/* RIGHT SIDEBAR */
+/* LEFT SIDEBAR */
 .social {
     position: fixed;
-    left: 40px;
+    height: 70vh;
+    left: 15px;
     display: none;
     flex-direction: column;
     align-items: center;
@@ -50,7 +51,7 @@ body {
 
 .social > div {
     width: 3px;
-    height: 30vh;
+    flex-grow: 1;
     background-color: var(--p-color);
     animation: social 4s 1 5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
 }
@@ -65,14 +66,14 @@ body {
     margin: 20px 0;
 }
 
-/* LEFT SIDEBAR */
+/* RIGHT SIDEBAR */
 .presentation {
     position: fixed;
     right: 15px;
     bottom: 0;
-    height: 100vh;
+    height: 60vh;
     z-index: -1;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
@@ -81,7 +82,7 @@ body {
     transition: transform 2s ease-out;
 }
 
-.avatar-main {
+/* .avatar-main {
     background-image: url('/src/images/avatar-small.jpg');
     background-position: center;
     background-size: cover;
@@ -93,7 +94,7 @@ body {
     border-bottom-left-radius: 3px;
     transform: translateX(150%);
     transition: transform 1s cubic-bezier(0.68, -0.6, 0.32, 1.6);
-}
+} */
 
 .presentation > p {
     font-family: "Lato", sans-serif;
@@ -101,13 +102,11 @@ body {
     font-size: 14px;
     text-align: end;
     padding: 10px 0;
-    z-index: 1;
-    border: 1;
 }
 
 .presentation-line {
     width: 3px;
-    height: 35%;
+    flex-grow: 1;
     background-color: var(--p-color);
 }
 
@@ -153,12 +152,12 @@ body {
 .burguer-menu {
     background-color: var(--title-color);
     opacity: .9;
-    height: 90vh;
     width: 100%;
     position: fixed;
     z-index: 2;
     right: 0;
     top: 10vh;
+    bottom: 10vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -181,6 +180,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     position: fixed;
+    height: 10vh;
     right: 15px;
     left: 15px;
     z-index: 2;
@@ -188,6 +188,18 @@ nav {
     transition: all .3s;
 }
 
+.nav-contact {
+    display: flex;
+    transform: translate(-63vw, -8px);
+    transition: transform 6s ease-in;
+}
+.nav-contact > a {
+    color: var(--link-color);
+    transition: color 6s ease-in;
+    font-size: 40px;
+    margin-right: 10px;
+    margin-left: 20px;
+}
 
 /* LOGO */
 .greetings {
@@ -245,6 +257,8 @@ nav {
 /* NAVBAR LINKS */
 .nav-links {
     display: none;
+    flex-grow: 1;
+    justify-content: flex-end;
 }
 
 .nav-link {
@@ -260,6 +274,7 @@ nav {
     position: relative;
     box-sizing: border-box;
     padding-top: 10vh;
+    padding-bottom: 10vh;
 }
 
 .section {
@@ -283,6 +298,7 @@ nav {
     display: flex;
     justify-content: center;
     cursor: pointer;
+    font-size: 18px;
 }
 
 .section-name > p {
@@ -378,7 +394,18 @@ background: rgb(116, 105, 74);
 
 /* CONTACT */
 .contact {
-    width: 100%;
+    background-color: var(--main-back-color);
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: fixed;
+    z-index: 2;
+    bottom: 0;
+    right: 15px;
+    left: 15px;
+    overflow: hidden;
+    transition: height .3s;
 }
 
 .contact-links {
@@ -389,7 +416,9 @@ background: rgb(116, 105, 74);
 .contact-links > a {
     color: var(--p-color);
     font-size: 20px;
-    margin: 15px 10px;
+    margin: 0 10px;
+    transform: translateY(100px);
+    transition: transform .5s;
 }
 
 .contact-p {
@@ -398,26 +427,46 @@ background: rgb(116, 105, 74);
     font-family: "Lato", sans-serif;
     font-size: 12px;
     text-align: center;
-    margin-top: 20px;
 }
 
 @media screen and (min-width: 375px) {
+    .section-name {
+        font-size: 20px;
+    }
+    .contact-p {
+        font-size: 14px;
+    }
+    .contact-links > a {
+        font-size: 22px;
+    }
 }
 @media screen and (min-width: 425px) {
 }
 @media screen and (min-width: 576px) {
-    .presentation {
-        display: flex;
+    .burguer-menu {
+        bottom: 0;
     }
     nav {
         right: 15%;
         left: 15%;
     }
+    .presentation {
+        display: flex;
+    }
+    .social {
+        display: flex;
+    }
     body {
         padding: 0 15%;
     }
+    .main {
+        padding-bottom: 0;
+    }
     .avatar {
         height: 210px;
+    }
+    .contact {
+        position: initial;
     }
 }
 
@@ -435,6 +484,10 @@ background: rgb(116, 105, 74);
     .icon-cloud {
         font-size: 70px;
     }
+    .burguer-link {
+        font-size: 1.5em;
+        margin: 25px 70px;
+    }
     .greetings {
         font-size: 22px;
         bottom: 15px;
@@ -444,17 +497,21 @@ background: rgb(116, 105, 74);
     /* LEFT SIDEBAR */
     .social {
         display: flex;
+        left: 30px;
     }
     /* RIGHT SIDEBAR */
     .presentation {
-        right: 40px;
+        right: 30px;
     }
-    .avatar-main {
+    /* .avatar-main {
         width: 100px;
         height: 100px;
-    }
-    .presentation > p {
+    } */
+    .contact-p {
         font-size: 16px;
+    }
+    .contact-links > a {
+        font-size: 28px;
     }
 
     /* HOME */
@@ -490,10 +547,13 @@ background: rgb(116, 105, 74);
     .burguer-btn {
         display: none;
     }
-    .presentation-line {
-        flex-grow: 1;
-    }
     .body {
         padding: 0 20%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .contact {
+        height: 15vh;
     }
 }

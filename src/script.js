@@ -7,15 +7,22 @@ const body = document.querySelector('body');
 const sectionsP = document.querySelectorAll('.section-name > p');
 const social = document.querySelector('.social');
 const presentation = document.querySelector('.presentation');
-const avatar = document.querySelector('.avatar-main');
-const viewportWidth = body.offsetWidth;
+// const avatar = document.querySelector('.avatar-main');
+const contactIcons = document.querySelectorAll('.contact-links > a');
+const navContact = document.querySelector('.nav-contact');
+const navContactLink = document.querySelector('.nav-contact > a');
+const viewportWidth = window.innerWidth;
+const viewportHeight = window.innerHeight;
 
 window.addEventListener("load", function(e) {
+    console.log(e)
 
     social.style.transform = "translateY(0)";
     presentation.style.transform = "translateY(0)";
+    navContact.style.transform = "translate(0, 0)";
+    navContactLink.style.color = "var(--p-color)";
 
-    setTimeout(() => {avatar.style.transform = "translateX(0)"}, 2000);
+    // setTimeout(() => {avatar.style.transform = "translateX(0)"}, 2000);
 
     let interval = 100;
 
@@ -31,6 +38,18 @@ window.addEventListener("load", function(e) {
 
         interval += randTime(100, 400)        
     }
+
+    let iconInterval = 1000;
+
+    for (let index = 0; index < contactIcons.length; index++) {
+
+        setTimeout(() => {
+            contactIcons[index].style.transform = 'translateY(0)';
+        }, iconInterval);
+
+        iconInterval += 1000;
+        
+    }
   });
 
 // SECTION NAME OPENER
@@ -42,12 +61,12 @@ const briefs = document.querySelectorAll('.brief');
 briefs.forEach(brief => brief.addEventListener('click', e => console.log(brief.lastElementChild)))
 
 sectionName.forEach(section => section.addEventListener('click', e => {
-    if(viewportWidth < 768) {
-        avatar.style.transform = "translateX(150%)";
-        setTimeout(() => {
-            presentation.style.transform = "translateY(100%)"
-        }, 1000)
-    }
+    // if(viewportWidth < 768) {
+    //     avatar.style.transform = "translateX(150%)";
+    //     setTimeout(() => {
+    //         presentation.style.transform = "translateY(100%)"
+    //     }, 1000)
+    // }
 
     let sectionIndex = sectionName.indexOf(section);
 
@@ -141,26 +160,38 @@ const closeMenu = () => {
 burguerBtn.addEventListener('click', closeMenu);
 burguerLinks.forEach(link => link.addEventListener('click', closeMenu))
 
-// HIDE NAVBAR / RIGHT SIDEBAR ON SMALL DEVICES
+// HIDE NAVBAR & FOOTER / RIGHT SIDEBAR ON SMALL DEVICES
 
-const nav = document.querySelector('nav')
+const nav = document.querySelector('nav');
+const navLinks = document.querySelector('.nav-links');
+const footer = document.querySelector('.contact');
 
 let scrollPosition = 0;
 
 window.addEventListener('scroll', e => {
+    console.log(window.scrollY)
+    // console.log(viewportWidth)
 
     let currentScroll = e.target.scrollingElement.scrollTop;
 
-    if(scrollPosition < currentScroll) {
+    if(scrollPosition < currentScroll && viewportWidth <= 992) {
         nav.style.height = '0';
-        if(viewportWidth < 768) {
-            avatar.style.transform = "translateX(150%)";
-            setTimeout(() => {
-                presentation.style.transform = "translateY(100%)"
-            }, 1000)
+        if(viewportWidth < 576) {
+            footer.style.height = '0';
         }
+
     } else {
         nav.style.height = '10vh';
+        if(viewportWidth < 576) {
+            footer.style.height = '10vh';
+        }
+
+    }
+
+    if(viewportWidth >= 992 && window.scrollY > viewportHeight) {
+        navLinks.style.display = "flex";
+    } else {
+        navLinks.style.display = "none";
     }
 
     scrollPosition = e.target.scrollingElement.scrollTop;

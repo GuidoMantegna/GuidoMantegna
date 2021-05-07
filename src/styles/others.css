@@ -1,4 +1,5 @@
 .others-main-container {
+    margin-bottom: 60px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -144,6 +145,9 @@
 }
 
 @media screen and (min-width: 576px) {
+    .others-main-container {
+        margin-bottom: 20px;
+    }
     label {
         font-size: 0.8em
     }
