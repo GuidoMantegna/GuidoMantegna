@@ -223,69 +223,140 @@ titles.forEach(title => title.addEventListener('click', e => {
 // WORK SLIDE
 
 const workBtn = document.querySelectorAll('.work-main-container > label')
-const slide = document.querySelector('.work-slide')
-const slidePosition = document.querySelectorAll('.slide-position > div')
+const slidePosition = Array.from(document.querySelectorAll('.slide-position > div'))
 const work = document.querySelectorAll('.work-item-container')
-const width = slide.offsetWidth;
+let slideNum = 0;
 
-let slidePos = 0;
+const chooseWork = (num, action) => {
+
+    const setClassFwd = num => {
+        switch (num) {
+            case 0:
+                work[1].classList.remove('work-item-next');
+                work[1].classList.add('current-item');
+    
+                work[3].classList.remove('work-item-prev');
+                work[3].classList.add('work-item-next');
+    
+                break;
+            case 1:
+                work[2].classList.remove('work-item-next');
+                work[2].classList.add('current-item');
+    
+                work[0].classList.remove('work-item-prev');
+                work[0].classList.add('work-item-next');
+    
+                break;
+            case 2:
+                work[3].classList.remove('work-item-next');
+                work[3].classList.add('current-item');
+    
+                work[1].classList.remove('work-item-prev');
+                work[1].classList.add('work-item-next');
+    
+                break;
+            case 3:
+                work[0].classList.remove('work-item-next');
+                work[0].classList.add('current-item');
+    
+                work[2].classList.remove('work-item-prev');
+                work[2].classList.add('work-item-next');
+    
+                break;
+        }
+    }
+
+    const setClassRew = num => {
+        switch (num) {
+            case 0:
+                work[3].classList.remove('work-item-prev');
+                work[3].classList.add('current-item');
+
+                work[2].classList.remove('work-item-next');
+                work[2].classList.add('work-item-prev');
+    
+                break;
+            case 1:
+                work[0].classList.remove('work-item-prev');
+                work[0].classList.add('current-item');
+
+                work[3].classList.remove('work-item-next');
+                work[3].classList.add('work-item-prev');
+    
+                break;
+            case 2:
+                work[1].classList.remove('work-item-prev');
+                work[1].classList.add('current-item');
+
+                work[0].classList.remove('work-item-next');
+                work[0].classList.add('work-item-prev');
+    
+                break;
+            case 3:
+                work[2].classList.remove('work-item-prev');
+                work[2].classList.add('current-item');
+
+                work[1].classList.remove('work-item-next');
+                work[1].classList.add('work-item-prev');
+    
+                break;
+        }
+    }
+
+    if(action === "fwd") {
+        work[num].classList.remove('current-item');
+        work[num].classList.add('work-item-prev');
+        setClassFwd(num)
+    } 
+    else {
+        work[num].classList.remove('current-item');
+        work[num].classList.add('work-item-next');
+        setClassRew(num)
+    }
+
+    // console.table({
+    //     work0 : work[0].classList[1],
+    //     work1 : work[1].classList[1],
+    //     work2 : work[2].classList[1],
+    //     work3 : work[3].classList[1],
+    // })
+    
+}
+
+const setSlidePosition = (num) => {
+    for (let index = 0; index < slidePosition.length; index++) {
+        index === num ? 
+        slidePosition[index].style.background = "rgba(255, 248, 220, .8)":
+        slidePosition[index].style.background = "rgba(255, 248, 220, .3)"
+    }
+}
+
 workBtn.forEach(btn => btn.addEventListener('click', e => {
     const action = e.target.dataset.action;
 
-    const setSlidePos = () => {
+    const setSlideNum = () => {
         if(action === "fwd") {
-            if(slidePos < 3) {
-                slidePos += 1
+            if(slideNum < 3) {
+                slideNum += 1
             } else {
-                slidePos = 0
+                slideNum = 0
             }
         } else {
-            if (slidePos > 0) {
-                slidePos -=1
+            if (slideNum > 0) {
+                slideNum -=1
             } else {
-                slidePos = 3
+                slideNum = 3
             }
         }
     }
-
-    setSlidePos()
-
     
-    action === "fwd" ? slide.scrollLeft += width : slide.scrollLeft -= width;  
+    chooseWork(slideNum, action)
 
-}))
+    setSlideNum()
 
-slide.addEventListener('scroll', e => {
-    const totalScroll = slide.scrollWidth;
-    let actualScroll = e.target.scrollLeft;
+    setSlidePosition(slideNum)
 
-    // actualScroll > 0 ? workBtn[0].style.display = 'block' : workBtn[0].style.display = 'none';
-    // actualScroll + width < totalScroll ? workBtn[1].style.display = 'block' : workBtn[1].style.display = 'none';
-
-    const setSlidePosition = (num) => {
-        for (let index = 0; index < slidePosition.length; index++) {
-            index === num ? 
-            slidePosition[index].style.background = "rgba(255, 248, 220, .8)":
-            slidePosition[index].style.background = "rgba(255, 248, 220, .3)"
-        }
-    }
-
-    switch (actualScroll) {
-        case 0:
-            setSlidePosition(0)
-            break;
-        case width:
-            setSlidePosition(1)
-            break;
-        case width*2:
-            setSlidePosition(2)
-            break;
-        case width*3:
-            setSlidePosition(3)
-            break;
-    }
-
-})
+}));
 
 
 // OTHERS SELECTOR
