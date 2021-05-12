@@ -1,5 +1,4 @@
 .skills-main-container {
-    /* padding: 10px 25px; */
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -8,7 +7,6 @@
 }
 
 .skills-header {
-    color: var(--p-color);
     letter-spacing: var(--p-letter-spacing);
     font-size: .9em;
     text-align: justify;
@@ -59,20 +57,16 @@
 }
 
 .skill-desc > p {
-    color: var(--p-color);
     letter-spacing: var(--p-letter-spacing);
     font-size: .6em;
 }
 
-@media screen and (min-width: 576px) {
-    .skills-main-container {
-        /* padding: 10px 15%; */
-    }
-}
 
 @media screen and (min-width: 768px) {
     .skill-item {
         height: 65px;
+        width: 80%;
+        align-self: center;
     }
     .skill-desc {
         font-size: 25px;

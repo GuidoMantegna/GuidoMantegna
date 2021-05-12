@@ -24,33 +24,28 @@
 
 .others-tags > label {
     width: 21%;
-    padding: 3px 5px;
-    color: var(--p-color);
+    padding: 5px;
     text-shadow: 1px 1px rgb(68, 68, 68);   
     font-size: 0.6em;
     font-weight: bold;
     text-align: center;
-    transition: all .5s;
-}
-
-.selected-tag {
-    transform: translateY(0);
-    background-color: rgba(146, 82, 82, 0.75);
+    transition: all .25s;
+    transform: translateY(1px);
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
 }
 
-.no-selected-tag {
-    transform: translateY(100%);
-    background: rgba(68, 68, 68, .75);
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-    opacity: .45;
-    cursor: pointer;
+.selected-tag {
+    background-color: var(--main-back-color);
+    border: 1px solid var(--p-color);
+    z-index: 1;
+    border-bottom: none;
 }
 
-.no-selected-tag:hover {
-    opacity: 1;
+.no-selected-tag {
+    background-color: rgba(100, 100, 100, .25);
+    opacity: .5;
+    cursor: pointer;
 }
 
 .others-img {
@@ -59,31 +54,19 @@
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     position: relative;
-    z-index: -1;
+    box-sizing: border-box;
+    border-top: 1px solid var(--p-color);
+    border-right: 1px solid var(--p-color);
 }
 
-/* .others-img::after,
-.others-img::before {
-    content: "";
-    display: block;
-    background-color: rgba(68, 68, 68, .75);
-    position: absolute;
-    z-index: 1;
-} */
-
-/* .others-img::before {
-    left: 0;
-    width: 50%;
-    height: 100%;
+.others-img > div {
+    width: 100%;
+    border-top: 15px solid var(--main-back-color);
+    border-right: 15px solid var(--main-back-color);
 }
-.others-img::after {
-    right: 0;
-    width: 50%;
-    height: 100%;
-} */
 
 .selected-img {
-    display: block;
+    display: flex;
 }
 
 .no-selected-img {
@@ -111,16 +94,8 @@
     background-position: center;
 }
 
-.others-desc {
-    padding: 10px;
-    background-color: rgba(100, 100, 100, .5);
-    width: 80%;
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-}
-
 .hobby-brief {
-    color: var(--p-color);
+    padding: 10px;
     font-size: .75em;
     letter-spacing: var(--p-letter-spacing);
     text-shadow: 1px 1px rgb(51, 51, 51);
@@ -139,7 +114,7 @@
 }
 
 @media screen and (min-width: 375px) {
-    label {
+    .others-tags > label {
         font-size: 0.7em
     }
 }
@@ -148,7 +123,7 @@
     .others-main-container {
         margin-bottom: 20px;
     }
-    label {
+    .others-tags > label {
         font-size: 0.8em
     }
 }
@@ -157,15 +132,18 @@
     .others-content {
         margin: 15px 0;
     }
-    label {
+    .others-tags > label {
         font-size: 0.9em;
-        width: 23%;
+        width: 22%;
     }
     .hobby-brief {
         font-size: .95em;
     }
 }
 
-@media screen and (min-width: 992px) {
-
+@media screen and (min-width: 1200px) {
+    .others-content {
+        width: 80%;
+        align-self: center;
+    }
 }

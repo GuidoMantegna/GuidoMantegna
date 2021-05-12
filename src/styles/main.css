@@ -13,17 +13,23 @@
     --main-back-color-deg: rgba(30, 44, 49, .6);
     --title-color: rgb(99, 141, 133);
     --p-color: rgb(190, 173, 173);
-    --link-color: rgb(201, 207, 114);
+    --link-color: rgb(231, 233, 126);
     --p-letter-spacing: .9px;
     --p-line-height: 20px;
+    --others-tag-left: 2px;
+    --others-tag-right: 250px;
     scroll-behavior: smooth;
 }
 
+* {
+    font-family: "Lato", sans-serif;
+    color: var(--p-color);
+}
 a {
     text-decoration: none;
 }
 a:active {
-    color: white;
+    color: var(--p-color);
 }
 h1, h2, p {
     margin: 0;
@@ -50,7 +56,7 @@ body {
 }
 
 .social > div {
-    width: 3px;
+    width: 2px;
     flex-grow: 1;
     background-color: var(--p-color);
     animation: social 4s 1 5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
@@ -77,27 +83,11 @@ body {
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
-    color: var(--p-color);
     transform: translateY(100%);
     transition: transform 2s ease-out;
 }
 
-/* .avatar-main {
-    background-image: url('/src/images/avatar-small.jpg');
-    background-position: center;
-    background-size: cover;
-    margin-top: 20px;
-    width: 50px;
-    height: 50px;
-    border-right: 3px solid var(--p-color);
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
-    transform: translateX(150%);
-    transition: transform 1s cubic-bezier(0.68, -0.6, 0.32, 1.6);
-} */
-
 .presentation > p {
-    font-family: "Lato", sans-serif;
     letter-spacing: var(--p-letter-spacing);
     font-size: 14px;
     text-align: end;
@@ -105,7 +95,7 @@ body {
 }
 
 .presentation-line {
-    width: 3px;
+    width: 2px;
     flex-grow: 1;
     background-color: var(--p-color);
 }
@@ -166,11 +156,14 @@ body {
 }
 
 .burguer-link {
-    color: rgb(209, 189, 189);
     font-size: 1.2em;
     letter-spacing: var(--p-letter-spacing);
     margin: 20px 40px;
     cursor: pointer;
+}
+
+.burguer-link > span {
+    font-family: 'Times New Roman', Times, serif;
 }
 
 /* NAVBAR */
@@ -189,7 +182,7 @@ nav {
 }
 
 .nav-contact {
-    display: flex;
+    display: none;
     transform: translate(-63vw, -8px);
     transition: transform 6s ease-in;
 }
@@ -203,8 +196,6 @@ nav {
 
 /* LOGO */
 .greetings {
-    color: var(--p-color);
-    font-family: "Lato", sans-serif;
     letter-spacing: var(--p-letter-spacing);
     font-size: 18px;
     position: absolute;
@@ -256,6 +247,7 @@ nav {
 
 /* NAVBAR LINKS */
 .nav-links {
+    font-family: 'Times New Roman', Times, serif;
     display: none;
     flex-grow: 1;
     justify-content: flex-end;
@@ -263,7 +255,6 @@ nav {
 
 .nav-link {
     margin-left: 20px;
-    color: rgb(209, 189, 189);
 }
 
 /* HOME */
@@ -288,8 +279,7 @@ nav {
     position: relative;
 }
 
-.section-name {
-    color: rgb(209, 189, 189);
+.section-name {  
     position: absolute;
     z-index: 1;
     height: 35px;
@@ -302,6 +292,7 @@ nav {
 }
 
 .section-name > p {
+    font-family: 'Times New Roman', Times, serif;
     display: none;
 }
 
@@ -312,7 +303,6 @@ nav {
     transition: all 1s ease-out;
 }
 .brief-desc {
-    color: var(--p-color);
     letter-spacing: var(--p-letter-spacing);
     line-height: var(--p-line-height);
     font-size: .9em;
@@ -322,7 +312,6 @@ nav {
 }
 
 .brief {
-    font-family: 'Lato', sans-serif;
     padding: 30px;
     opacity: 0;
     min-height: 250px;
@@ -359,7 +348,6 @@ nav {
 }
 
 .content {
-    font-family: 'Lato', sans-serif;
     min-height: 100vh;
     box-sizing: border-box;
     display: flex;
@@ -368,8 +356,8 @@ nav {
 }
 
 .content-title {
-    font-size: 16px;
-    color: rgba(255, 127, 80, .4);
+    font-family: 'Dancing Script', cursive;
+    font-size: 20px;
     margin: 7.5px;
 }
 
@@ -414,7 +402,6 @@ background: rgb(116, 105, 74);
 }
 
 .contact-links > a {
-    color: var(--p-color);
     font-size: 20px;
     margin: 0 10px;
     transform: translateY(100px);
@@ -422,9 +409,7 @@ background: rgb(116, 105, 74);
 }
 
 .contact-p {
-    color: var(--p-color);
     letter-spacing: var(--p-letter-spacing);
-    font-family: "Lato", sans-serif;
     font-size: 12px;
     text-align: center;
 }
@@ -442,6 +427,7 @@ background: rgb(116, 105, 74);
 }
 @media screen and (min-width: 425px) {
 }
+
 @media screen and (min-width: 576px) {
     .burguer-menu {
         bottom: 0;
@@ -461,9 +447,6 @@ background: rgb(116, 105, 74);
     }
     .main {
         padding-bottom: 0;
-    }
-    .avatar {
-        height: 210px;
     }
     .contact {
         position: initial;
@@ -503,10 +486,6 @@ background: rgb(116, 105, 74);
     .presentation {
         right: 30px;
     }
-    /* .avatar-main {
-        width: 100px;
-        height: 100px;
-    } */
     .contact-p {
         font-size: 16px;
     }
@@ -547,7 +526,10 @@ background: rgb(116, 105, 74);
     .burguer-btn {
         display: none;
     }
-    .body {
+    .nav-contact {
+        display: flex;
+    }
+    body {
         padding: 0 20%;
     }
 }

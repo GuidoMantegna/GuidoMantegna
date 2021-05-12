@@ -15,8 +15,6 @@
 }
 
 .work-item-container {
-    /* background: linear-gradient(to right, var(--main-back-color), var(--main-back-color-deg), var(--main-back-color)), url(/src/images/work.jpeg);
-    background-size: cover; */
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -30,9 +28,21 @@
     padding: 0 10px;
 }
 
+.work-title {
+    color: var(--title-color);
+    font-size: 1.1em;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.project-link {
+    margin-left: 5px;
+}
+
 .project-video {
     width: 100%;
-    height: auto;
+    margin-bottom: 10px;
     box-sizing: border-box;
     border-radius: 3px;
     box-shadow: 3px 3px rgb(194, 194, 194, 0.5);
@@ -41,6 +51,7 @@
 .js-challenge {
     padding: 0 25px;
     box-sizing: border-box;
+    justify-self: center;
 }
 
 .js-challenge > video {
@@ -53,46 +64,24 @@
     margin-top: 5px;
 }
 
-.work-presentation {
-    flex-grow: 1;
-    padding-top: 10px;
-}
-
 .work-desc {
-    display: flex;
-    flex-direction: column;
-    max-width: 100%;
-    padding: 10px;
     border-radius: 3px;
-}
-
-.work-title {
-    color: var(--title-color);
-    font-size: 1.2em;
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-.project-link {
-    color: var(--link-color);
-    font-size: .5em;
-    margin: 0 5px;
-    font-weight: lighter;
+    padding: 5px 20px;
+    position: relative;
 }
 
 .work-desc > p {
     font-size: .8em;
-    color: var(--p-color);
+    text-shadow: 1px 1px rgb(68, 68, 68);
     letter-spacing: var(--p-letter-spacing);
-    margin-top: 5px;
+    margin-top: 7px;
     text-align: justify;
 }
 
 .small-portrait {
-    width: 30%;
+    width: 95%;
     box-sizing: border-box;
     padding: 25px 8px;
-    margin: 10px 0;
     border: 3px solid rgba(255, 248, 220, .8);
     box-shadow: 3px 3px rgba(255, 248, 220, .3);
     border-radius: 10px;
@@ -102,25 +91,27 @@
 .rew, 
 .fwd {
     position: absolute;
-    color: var(--link-color);
-    font-size: 2em;
+    font-size: 1.5em;
+    font-weight: bold;
     bottom: 50%;
     z-index: 1;
+    cursor: pointer;
 }
 
 .rew {
-    display: none;
-    /* left: 10px; */
+    /* display: none; */
+    left: -15px;
 }
 
 .fwd {
-    right: 0px;
+    right: -15px;
 }
 
 .slide-position {
     margin: 10px 0;
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 100%;
     bottom: 5px;
 }
@@ -138,7 +129,7 @@
     background-color: rgba(255, 248, 220, .8);
 }
 
-@media screen and (min-width: 375px) and (min-height: 700px){
+@media screen and (min-width: 375px) {
     .work-title {
         font-size: 1.5em;
         margin-bottom: 20px;
@@ -152,67 +143,67 @@
 @media screen and (min-width: 425px) {
     .js-challenge {
         padding: 0 55px;
-    }
-    .work-desc > p {
-        font-size: 1em;
-        margin-top: 5px;
-    }    
-}
-
-
-@media screen and (min-width: 576px) {
-
+    } 
 }
 
 @media screen and (min-width: 768px) {
     .work-item-container {
-        flex-direction: column-reverse;
-    }
-    .project-video {
-        margin-top: 10px;
-    }
-    .work-presentation {
-        display: flex;
-        align-items: center;
-        grid-area: area-a;
+        display: grid;
+        grid-template-columns: 70% 30%;
+        grid-template-areas: 
+            "title title title"
+            "video video video"
+            "brief small-p small-p";
     }
     .work-title {
         font-size: 1.75em;
+        grid-area: title;
+        margin-bottom: 0;
+    }
+    .project-video {
         margin: 0;
+        grid-area: video;
+    }
+    .js-challenge {
+        margin-bottom: 20px;
+        padding: 10px 65px;
+        grid-area: video;
     }
     .work-desc {
         padding: 0 20px;
+        box-sizing: border-box;
         justify-content: center;
-    }
-    .work-desc > p {
-        margin-top: 10px;
+        grid-area: brief;
     }
     .small-portrait {
         display: block;
+        grid-area: small-p;
     }
-}
-
-@media screen and (min-width: 992px) {
-    .work-item-container {
-        flex-direction: row;
-    }
-    .project-video {
-        width: 55%;
-        margin: 0;
-    }
-    .work-desc {
-        width: 100%;
-    }
-    .small-portrait {
-        display: none;
+    .rew, .fwd {
+        font-size: 2em;
     }
 }
 
 @media screen and (min-width: 1200px) {
-    .js-challenge {
-        width: 95%;
+    .work-item-container {
+        padding: 0;
+        display: grid;
+        grid-template-columns: 50% 30% 20%;
+        grid-template-areas: 
+            "title title title"
+            "video brief small-p";
     }
+    .js-challenge {
+        display: flex;
+        flex-direction: column;
+    }
+
     .project-video {
-        width: 50%;
+        width: 95%;
+        justify-self: center;
+    }
+    .small-portrait {
+        width: 80%;
+        justify-self: center;
     }
 }

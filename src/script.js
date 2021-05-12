@@ -7,7 +7,6 @@ const body = document.querySelector('body');
 const sectionsP = document.querySelectorAll('.section-name > p');
 const social = document.querySelector('.social');
 const presentation = document.querySelector('.presentation');
-// const avatar = document.querySelector('.avatar-main');
 const contactIcons = document.querySelectorAll('.contact-links > a');
 const navContact = document.querySelector('.nav-contact');
 const navContactLink = document.querySelector('.nav-contact > a');
@@ -15,14 +14,11 @@ const viewportWidth = window.innerWidth;
 const viewportHeight = window.innerHeight;
 
 window.addEventListener("load", function(e) {
-    console.log(e)
 
     social.style.transform = "translateY(0)";
     presentation.style.transform = "translateY(0)";
     navContact.style.transform = "translate(0, 0)";
     navContactLink.style.color = "var(--p-color)";
-
-    // setTimeout(() => {avatar.style.transform = "translateX(0)"}, 2000);
 
     let interval = 100;
 
@@ -58,15 +54,7 @@ const sections = document.querySelectorAll('.section');
 const sectionName = Array.from(document.querySelectorAll('.section-name'));
 const briefs = document.querySelectorAll('.brief');
 
-briefs.forEach(brief => brief.addEventListener('click', e => console.log(brief.lastElementChild)))
-
 sectionName.forEach(section => section.addEventListener('click', e => {
-    // if(viewportWidth < 768) {
-    //     avatar.style.transform = "translateX(150%)";
-    //     setTimeout(() => {
-    //         presentation.style.transform = "translateY(100%)"
-    //     }, 1000)
-    // }
 
     let sectionIndex = sectionName.indexOf(section);
 
@@ -169,10 +157,10 @@ const footer = document.querySelector('.contact');
 let scrollPosition = 0;
 
 window.addEventListener('scroll', e => {
-    console.log(window.scrollY)
-    // console.log(viewportWidth)
-
+    
     let currentScroll = e.target.scrollingElement.scrollTop;
+    let totalVH = e.target.scrollingElement.offsetHeight;
+    let onBottom = totalVH - currentScroll - viewportHeight;
 
     if(scrollPosition < currentScroll && viewportWidth <= 992) {
         nav.style.height = '0';
@@ -237,20 +225,42 @@ titles.forEach(title => title.addEventListener('click', e => {
 const workBtn = document.querySelectorAll('.work-main-container > label')
 const slide = document.querySelector('.work-slide')
 const slidePosition = document.querySelectorAll('.slide-position > div')
+const work = document.querySelectorAll('.work-item-container')
 const width = slide.offsetWidth;
 
+let slidePos = 0;
 workBtn.forEach(btn => btn.addEventListener('click', e => {
     const action = e.target.dataset.action;
+
+    const setSlidePos = () => {
+        if(action === "fwd") {
+            if(slidePos < 3) {
+                slidePos += 1
+            } else {
+                slidePos = 0
+            }
+        } else {
+            if (slidePos > 0) {
+                slidePos -=1
+            } else {
+                slidePos = 3
+            }
+        }
+    }
+
+    setSlidePos()
+
     
-    action === "fwd" ? slide.scrollLeft += width : slide.scrollLeft -= width;   
+    action === "fwd" ? slide.scrollLeft += width : slide.scrollLeft -= width;  
+
 }))
 
 slide.addEventListener('scroll', e => {
     const totalScroll = slide.scrollWidth;
     let actualScroll = e.target.scrollLeft;
 
-    actualScroll > 0 ? workBtn[0].style.display = 'block' : workBtn[0].style.display = 'none';
-    actualScroll + width < totalScroll ? workBtn[1].style.display = 'block' : workBtn[1].style.display = 'none';
+    // actualScroll > 0 ? workBtn[0].style.display = 'block' : workBtn[0].style.display = 'none';
+    // actualScroll + width < totalScroll ? workBtn[1].style.display = 'block' : workBtn[1].style.display = 'none';
 
     const setSlidePosition = (num) => {
         for (let index = 0; index < slidePosition.length; index++) {

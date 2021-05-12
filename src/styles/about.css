@@ -7,7 +7,7 @@
 }
 
 .avatar {
-    background-image: url(/src/images/Guido-Mantegna-2.JPG);
+    background-image: linear-gradient(to right, rgba(30, 44, 49, .1), var(--main-back-color)),url(/src/images/Guido-Mantegna-2.JPG);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
@@ -21,47 +21,21 @@
     border-top-left-radius: 5px;
 }
 
-.avatar::after, 
-.avatar::before {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 7.5px;
-    opacity: .5;
-    transition: all 3s;
-}
-
-.avatar::after {
-    background: darkcyan;
-    bottom: 5%;
-}
-.avatar::before {
-    background: rgb(197, 168, 6);
-    bottom: 15%;
-}
-
 .about-me {
-    color: var(--p-color);
-    width: 45%;
+    width: 50%;
     letter-spacing: var(--p-letter-spacing);
     font-size: .7em;
-    background-color: rgba(80, 80, 80, 0.5);
+    text-align: end;
     text-shadow: 1px 1px rgb(68, 68, 68);
-    box-shadow: -3px 3px rgb(100, 100, 100);
-    border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
-    padding: 10px;
     position: absolute;
     right: 0;
-    z-index: 1;
 }
 
 .education-header {
     color: var(--title-color);
     letter-spacing: var(--p-letter-spacing);
     position: relative;
-    margin: 0;
+    margin: 5px;
     text-align: end;
     font-weight: 400;
 }
@@ -71,9 +45,9 @@
     position: absolute;
     width: 60%;
     bottom: 40%;
-    height: 2px;
-    background: darkcyan;
-    opacity: .25;
+    height: 1px;
+    background: var(--title-color);
+    /* opacity: .25; */
 }
 .education {
     margin-top: 5px;
@@ -82,7 +56,6 @@
 
 .line-num {
     font-family: 'Mitr', sans-serif;
-    color: rgb(209, 189, 189);
     font-weight: lighter;
     font-size: 10px;
     min-width: 37px;
@@ -90,7 +63,6 @@
 
 .education-date {
     display: flex;
-    color: var(--p-color);
 }
 .education-date > p {
     font-size: .75em;
@@ -107,7 +79,6 @@
 }
 .education > p {
     font-size: .75em;
-    color: var(--p-color);
 }
 .education-brief {
     height: 0;
@@ -115,8 +86,34 @@
     padding-left: 37px;
 }
 
+@media screen and (min-width: 576px) {
+    .avatar {
+        height: 210px;
+    }
+}
 @media screen and (min-width: 768px) {
     .avatar {
         height: 290px;
+    }
+    .about-me {
+        font-size: .9em;
+    }
+    .education-header {
+        width: 75%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .avatar {
+        height: 250px;
+        background-size: 70%;
+        background-position: inherit;
+    }
+    .about-me {
+        width: 60%;
+        font-size: 1em;
+    }
+    .education-header {
+        margin: 15px 5px;
     }
 }
