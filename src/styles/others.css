@@ -1,5 +1,4 @@
 .others-main-container {
-    margin-bottom: 60px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -51,6 +50,7 @@
 .others-img {
     flex-grow: 1;
     width: 100%;
+    min-height: 320px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     position: relative;
@@ -105,12 +105,21 @@
     font-weight: bold;
 }
 
+.hobby-brief > a {
+    color: var(--link-color);
+    font-weight: bold;
+}
+
 .selected-brief {
     display: block;
 }
 
 .no-selected-brief {
     display: none;
+}
+
+.last-tag {
+    margin-bottom: 20%;
 }
 
 @media screen and (min-width: 375px) {
@@ -120,9 +129,6 @@
 }
 
 @media screen and (min-width: 576px) {
-    .others-main-container {
-        margin-bottom: 20px;
-    }
     .others-tags > label {
         font-size: 0.8em
     }
@@ -138,6 +144,9 @@
     }
     .hobby-brief {
         font-size: .95em;
+    }
+    .last-tag {
+        margin-bottom: 0;
     }
 }
 

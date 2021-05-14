@@ -56,7 +56,6 @@
 
 .line-num {
     font-family: 'Mitr', sans-serif;
-    font-weight: lighter;
     font-size: 10px;
     min-width: 37px;
 }
@@ -69,6 +68,7 @@
 }
 .education-title {
     display: flex;
+    width: fit-content;
     cursor: pointer;
 }
 .education-title > h6 {
@@ -82,8 +82,10 @@
 }
 .education-brief {
     height: 0;
+    opacity: 0;
     overflow: hidden;
     padding-left: 37px;
+    transition: opacity .5s;
 }
 
 @media screen and (min-width: 576px) {

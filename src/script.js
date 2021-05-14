@@ -9,16 +9,20 @@ const social = document.querySelector('.social');
 const presentation = document.querySelector('.presentation');
 const contactIcons = document.querySelectorAll('.contact-links > a');
 const navContact = document.querySelector('.nav-contact');
-const navContactLink = document.querySelector('.nav-contact > a');
+const navContactIcon = document.querySelector('.nav-contact > i');
+const instructions = document.querySelector('.instructions');
 const viewportWidth = window.innerWidth;
 const viewportHeight = window.innerHeight;
+
 
 window.addEventListener("load", function(e) {
 
     social.style.transform = "translateY(0)";
     presentation.style.transform = "translateY(0)";
-    navContact.style.transform = "translate(0, 0)";
-    navContactLink.style.color = "var(--p-color)";
+    navContact.style.transform = "translate(0)";
+    navContactIcon.style.color = "var(--p-color)";
+
+    
 
     let interval = 100;
 
@@ -46,6 +50,14 @@ window.addEventListener("load", function(e) {
         iconInterval += 1000;
         
     }
+
+    this.setTimeout(() => {
+        instructions.style.opacity = "1"
+    }, 8000)
+    this.setTimeout(() => {
+        instructions.style.opacity = "0"
+    }, 12000)
+
   });
 
 // SECTION NAME OPENER
@@ -112,7 +124,18 @@ const closeMenu = () => {
     if(burguerClose) {
         burguerLines[0].style.transform = "translateY(10px)";
         burguerLines[2].style.transform = "translateY(-10px)";
-        burguerMenu.style.transform = "translateX(0)"
+        burguerMenu.style.transform = "translateX(0)";
+        burguerMenu.style.top = `${nav.clientHeight}px`;
+        if(window.innerWidth < 768 && window.innerHeight > 500) {
+            burguerMenu.style.bottom = `${footer.clientHeight}px`;
+            console.log(window.innerHeight)
+        } else {
+            burguerMenu.style.bottom = `0`;
+        }
+        // if(window.innerWidth < 768) {
+        //     burguerMenu.style.bottom = `${footer.clientHeight}px`;
+        //     console.log(window.innerHeight)
+        // }
         
         setTimeout(() => {
             burguerLines[0].style.display = "none";
@@ -127,7 +150,7 @@ const closeMenu = () => {
     } else {
         burguerLines[1].style.transform = "rotate(0deg)";
         burguerLines[3].style.transform = "rotate(0deg)";
-        burguerMenu.style.transform = "translateX(100%)"
+        burguerMenu.style.transform = "translateX(130%)"
 
         setTimeout(() => {
             burguerLines[0].style.display = "block";
@@ -160,23 +183,23 @@ window.addEventListener('scroll', e => {
     
     let currentScroll = e.target.scrollingElement.scrollTop;
     let totalVH = e.target.scrollingElement.offsetHeight;
-    let onBottom = totalVH - currentScroll - viewportHeight;
+    let onBottom = totalVH - currentScroll - window.innerHeight;
 
-    if(scrollPosition < currentScroll && viewportWidth <= 992) {
-        nav.style.height = '0';
-        if(viewportWidth < 576) {
-            footer.style.height = '0';
+    if(scrollPosition < currentScroll) {
+        nav.style.transform = 'translateY(-100%)';
+        if(onBottom > footer.clientHeight && window.innerWidth < 768) {
+            footer.style.transform = 'translateY(100%)';
+        } else {
+            footer.style.transform = 'translateY(0)';
         }
-
     } else {
-        nav.style.height = '10vh';
-        if(viewportWidth < 576) {
-            footer.style.height = '10vh';
-        }
-
+        nav.style.transform = 'translateY(0)';
+        footer.style.transform = 'translateY(0)';
     }
 
-    if(viewportWidth >= 992 && window.scrollY > viewportHeight) {
+    
+
+    if(window.innerWidth >= 992 && window.scrollY > window.innerHeight) {
         navLinks.style.display = "flex";
     } else {
         navLinks.style.display = "none";
@@ -186,38 +209,35 @@ window.addEventListener('scroll', e => {
 
 })
 
-// MAIN
-// const sections = document.querySelectorAll('.section-name');
-// let position = section.getBoundingClientRect();
-// console.log(position.top)
-// console.log(position.bottom)
+window.addEventListener('orientationchange', () => {
+    if(window.innerHeight < 992) {
+        navLinks.style.display = "none";
+    }
 
-
-// sections.forEach(section => section.addEventListener('touchstart', e => {
-//     section.style.transform = "scale(1.2)"
-// }))
-// sections.forEach(section => section.addEventListener('touchend', e => {
-//     section.style.transform = "scale(1)"
-// }))
-
+})
 
 // SPREAD EDUCATION 
 const titles = Array.from(document.querySelectorAll('.education-title'));
 
 titles.forEach(title => title.addEventListener('click', e => {
-    const brief = e.path[2].childNodes[5];
-    const height = e.path[2].childNodes[5].clientHeight;
-    const spread = e.path[1].childNodes[1].childNodes[1];
+    const brief = title.nextElementSibling;
+    const height = title.nextElementSibling.clientHeight;
+    const spread = e.target.previousElementSibling.firstElementChild;
+
 
     if(e.target != title) {
         if (height == 0) {
             brief.style.height = '100%'
+            brief.style.opacity = '1'
             spread.innerText = 'v'
         } else {
             brief.style.height = '0';
+            brief.style.opacity = '0'
             spread.innerText = '>'
         }
     }
+
+    console.log(e)
 }))
 
 // WORK SLIDE

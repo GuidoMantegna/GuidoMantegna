@@ -17,27 +17,27 @@
 
 .work-item-container {
     width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    flex-shrink: 0;
     transition: all .25s;
-    position: absolute;
     border-radius: 5px;
     padding: 0 10px;
 }
 
 .current-item {
     transform: translate(0);
+    position: relative;
     visibility: initial;
 }
 
 .work-item-next,
 .work-item-prev {
     visibility: hidden;
+    top: 0;
+    bottom: 0;
+    position: absolute;
 }
 
 .work-item-prev {
@@ -61,7 +61,7 @@
 
 .project-video {
     width: 100%;
-    margin-bottom: 10px;
+    margin: 10px 0;
     box-sizing: border-box;
     border-radius: 3px;
     box-shadow: 3px 3px rgb(194, 194, 194, 0.5);
@@ -178,9 +178,9 @@
         font-size: 1.75em;
         grid-area: title;
         margin-bottom: 0;
+        align-self: end;
     }
     .project-video {
-        margin: 0;
         grid-area: video;
     }
     .js-challenge {
