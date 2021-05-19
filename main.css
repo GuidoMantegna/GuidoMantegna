@@ -336,20 +336,20 @@ nav {
 }
 
 .about-brief {
-    background: linear-gradient(to top, var(--main-back-color), var(--main-back-color-deg), var(--main-back-color)), url(/src/images/Guido-Mantegna-2.JPG);
+    background: linear-gradient(to top, var(--main-back-color), var(--main-back-color-deg), var(--main-back-color)), url(images/Guido-Mantegna-2.JPG);
     background-size: cover;
     background-position: left;
 }
 .work-brief {
-    background: linear-gradient(to top, var(--main-back-color), var(--main-back-color-deg), var(--main-back-color)), url(/src/images/work.jpeg);
+    background: linear-gradient(to top, var(--main-back-color), var(--main-back-color-deg), var(--main-back-color)), url(images/work.jpeg);
     background-size: cover;
 }
 .skills-brief {
-    background: linear-gradient(to top, var(--main-back-color), var(--main-back-color-deg), var(--main-back-color)), url(/src/images/skills.jpg);
+    background: linear-gradient(to top, var(--main-back-color), var(--main-back-color-deg), var(--main-back-color)), url(images/skills.jpg);
     background-size: cover;
 }
 .others-brief {
-    background: linear-gradient(to top, var(--main-back-color), var(--main-back-color-deg), var(--main-back-color)), url(/src/images/Guido-Mantegna-1.jpeg);
+    background: linear-gradient(to top, var(--main-back-color), var(--main-back-color-deg), var(--main-back-color)), url(images/Guido-Mantegna-1.jpeg);
     background-size: cover;
     background-position: right;
 }
@@ -529,20 +529,20 @@ footer {
         font-size: 1.5em;
     }
     .about-brief {
-        background: linear-gradient(to right, var(--main-back-color), var(--main-back-color-deg), var(--main-back-color)), url(/src/images/Guido-Mantegna-2.JPG);
+        background: linear-gradient(to right, var(--main-back-color), var(--main-back-color-deg), var(--main-back-color)), url(images/Guido-Mantegna-2.JPG);
         background-size: cover;
         background-position: left;
     }
     .work-brief {
-        background: linear-gradient(to right, var(--main-back-color), var(--main-back-color-deg), var(--main-back-color)), url(/src/images/work.jpeg);
+        background: linear-gradient(to right, var(--main-back-color), var(--main-back-color-deg), var(--main-back-color)), url(images/work.jpeg);
         background-size: cover;
     }
     .skills-brief {
-        background: linear-gradient(to right, var(--main-back-color), var(--main-back-color-deg), var(--main-back-color)), url(/src/images/skills.jpg);
+        background: linear-gradient(to right, var(--main-back-color), var(--main-back-color-deg), var(--main-back-color)), url(images/skills.jpg);
         background-size: cover;
     }
     .others-brief {
-        background: linear-gradient(to right, var(--main-back-color), var(--main-back-color-deg), var(--main-back-color)), url(/src/images/Guido-Mantegna-1.jpeg);
+        background: linear-gradient(to right, var(--main-back-color), var(--main-back-color-deg), var(--main-back-color)), url(images/Guido-Mantegna-1.jpeg);
         background-size: cover;
         background-position: right;
     }

@@ -80,22 +80,22 @@
 }
 
 .ph-img {
-    background-image: url('/src/images/photography.JPG');
+    background-image: url('images/photography.JPG');
     background-size: cover;
     background-position: center;    
 }
 .wood-img {
-    background-image: url('/src/images/woodwork-2.jpg');
+    background-image: url('images/woodwork-2.jpg');
     background-size: cover;
     background-position: top;
 }
 .music-img {
-    background-image: url('/src/images/music.jpg');
+    background-image: url('images/music.jpg');
     background-size: cover;
     background-position: center;
 }
 .sports-img {
-    background-image: url('/src/images/bike.jpg');
+    background-image: url('images/bike.jpg');
     background-size: cover;
     background-position: center;
 }
