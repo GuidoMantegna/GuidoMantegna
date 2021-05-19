@@ -9,8 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,900;1,100;1,300;1,400;1,900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/styles/main.css">
     <link rel="stylesheet" href="/src/styles/about.css">
     <link rel="stylesheet" href="/src/styles/works.css">
@@ -21,8 +19,8 @@
 
 <body>
 
-    <!-- LEFT SIDEBAR -->
-    <div class="social">
+<!-- LEFT SIDEBAR -->
+    <div class="left-sidebar">
         <div class="sidebar-line"></div>
         <a href="mailto:mantegnaguido@gmail.com" target="_blank"><i class="icon-mail4"></i></a>
         <a href="https://www.linkedin.com/in/guidomantegna/" target="_blank"><i class="icon-linkedin"></i></a>
@@ -31,23 +29,22 @@
         <a href="https://twitter.com/guidomantegna"><i class="icon-twitter" target="_blank"></i></a>
     </div>
 
-    <!-- RIGHT SIDEBAR -->
-    <div class="presentation">
+<!-- RIGHT SIDEBAR -->
+    <div class="right-sidebar">
         <p>I'm a<br> frontend<br> dev<br> and<br> i love<br> to build<br> things.</p>
         <div class="sidebar-line"></div>
     </div>
 
-    <!-- BURGER MENU -->
+<!-- BURGER MENU -->
     <div class="burguer-menu">
-        <a class="burguer-link" href="#home"><span>0. home</span></a>
-        <a class="burguer-link" href="#about"><span>1. about</span></a>
-        <a class="burguer-link" href="#work"><span>2. work</span></a>
-        <a class="burguer-link" href="#skills"><span>3. skills</span></a>
-        <a class="burguer-link" href="#others"><span>4. others</span></a>
-        <a class="burguer-link" href="#contact"><span>5. contact</span></a>
+        <a class="burguer-link" href="#home">0. home</a>
+        <a class="burguer-link" href="#about">1. about</a>
+        <a class="burguer-link" href="#work">2. work</a>
+        <a class="burguer-link" href="#skills">3. skills</a>
+        <a class="burguer-link" href="#others">4. others</a>
     </div>
 
-    <!-- NAVBAR -->
+<!-- NAVBAR -->
     <nav>
         <a href="#home" class="logo">
             <i class="icon-cloud"></i>
@@ -62,18 +59,18 @@
         </div>
         
         <div class="nav-links">
-            <a class="nav-link" href="#about"><span>1. about</span></a>
-            <a class="nav-link" href="#work"><span>2. work</span></a>
-            <a class="nav-link" href="#skills"><span>3. skills</span></a>
-            <a class="nav-link" href="#others"><span>4. others</span></a>
+            <a class="nav-link" href="#about"><span>1.</span> about</a>
+            <a class="nav-link" href="#work"><span>2.</span> work</span></a>
+            <a class="nav-link" href="#skills"><span>3.</span> skills</a>
+            <a class="nav-link" href="#others"><span>4.</span> others</a>
         </div>
 
         <a href="mailto:mantegnaguido@gmail.com" class="nav-contact"><i class="icon-mail4"></i></a>
 
     </nav>
 
-    <!-- MAIN -->
-    <div class="main" id="home">
+<!-- MAIN -->
+    <section class="home" id="home">
         <div class="section">
             <div class="section-name" data-name="about">
                 <p>a</p>
@@ -142,22 +139,24 @@
             <p> click or scroll to navigate</p>
         </div>
 
-    </div>
+    </section>
 
 <!-- ABOUT -->
-    <div class="about content" id="about">
+    <section class="content" id="about">
 
     <div class="about-main-container">
-        
-        <h2 class="content-title">< about ></h2>
+
+        <div class="section-header">
+            <h2><span class="title-num">1.</span> about</h2>
+        </div>
 
         <div class="avatar">
             <p class="about-me">
-                >> After years working in enterprise administration, I started my own business. In the last two years, I've been learning web development and now I’m excited to join a project where I can apply what I learnt and continue learning new skills.
+                After years working in enterprise administration, I started my own business. In the last two years, I've been learning web development and now I’m excited to join a project where I can apply what I learnt and continue learning new skills.
             </p>
         </div>                
         
-        <h3 class="education-header">education</h3>
+        <h3 class="education-header"><div></div>education</h3>
         <div class="education">
             <div class="education-date">
                 <span class="line-num">208</span>
@@ -217,7 +216,7 @@
             <p class="education-brief">E.S. CREATIVOS PUB. - Graduado en la carrera de Creativo Publicitario Junior con orientación a la redacción.</p>
         </div>
 
-        <h3 class="education-header">experience</h3>
+        <h3 class="education-header"><div></div>experience</h3>
         <div class="education">
             <div class="education-date">
                 <span class="line-num">476</span>
@@ -252,16 +251,18 @@
             <p class="education-brief">ELECTRO BUENOS AIRES - ELECTRO BUENOS AIRES - Checking account management | Supplier relations | Stock control | Sales and personalized client care.</p>
         </div>
 
-        <h2 class="content-title">< /about ></h2>
     </div>
-    </div>
+
+    </section>
 
 <!-- WORK -->
-    <div class="work content" id="work">
+    <section class="content" id="work">
         <div class="work-main-container">
-            <h2 class="content-title">< work ></h2>
-
-            <p class="skills-header">> These are some of my projects.</p>
+            
+            <div class="section-header">
+                <h2><span class="title-num">2.</span> work</h2>
+                <p>These are some of the projects i've been doing during my practices.</p>
+            </div>
 
             <label for="rewind" class="rew" data-action="rew"><</label>
 
@@ -275,10 +276,10 @@
                     <video class="project-video" src="/src/images/Full Fridge.mp4" autoplay loop muted></video>
                 
                     <div class="work-desc">
-                        <p>- Five pages (contained in a main Layout), all of which are dynamically rendered in the browser by React Router.</p>
-                        <p>- Some data is stored using Indexed DB.</p>
-                        <p>- Food info is retrieved from an external API.</p>
-                        <p>- Fully responsive. Some tools used to achieve it are CSS Grid, Flexbox and Bootstrap.</p>
+                        <p><span class="hyphen">-</span> Five pages (contained in a main Layout), all of which are dynamically rendered in the browser by React Router.</p>
+                        <p><span class="hyphen">-</span> Some data is stored using Indexed DB.</p>
+                        <p><span class="hyphen">-</span> Food info is retrieved from an external API.</p>
+                        <p><span class="hyphen">-</span> Fully responsive. Some tools used to achieve it are CSS Grid, Flexbox and Bootstrap.</p>
                     </div>
                 
                     <img class="small-portrait" src="/src/images/full-fridge-small-portrait.png" alt="">
@@ -293,8 +294,8 @@
                     <video class="project-video" src="/src/images/mercado-libre.mp4" autoplay loop muted></video>
                 
                     <div class="work-desc">
-                        <p>- Design, dropdowns, burger menu and other stuff were made with Bootstrap tools.</p>
-                        <p>- This page section is responsive from 385px viewport width.</p>
+                        <p><span class="hyphen">-</span> Design, dropdowns, burger menu and other stuff were made with Bootstrap tools.</p>
+                        <p><span class="hyphen">-</span> This page section is responsive from 385px viewport width.</p>
                     </div>
 
                     <img class="small-portrait" src="/src/images/mercado-libre-small-portrait.png" alt="">
@@ -312,8 +313,8 @@
                     </div>
 
                     <div class="work-desc">
-                        <p>- This is the result of a 30 Day Vanilla JS Coding Challenge.</p>
-                        <p>- Made with HTML5, CSS3 and all the tools from Vanilla JS (array methods | API fetch | local storage & indexed DB | DOM | speech recognition | canvas | and more).</p>
+                        <p><span class="hyphen">-</span> This is the result of a 30 Day Vanilla JS Coding Challenge.</p>
+                        <p><span class="hyphen">-</span> Made with HTML5, CSS3 and all the tools from Vanilla JS (array methods | API fetch | local storage & indexed DB | DOM | speech recognition | canvas | and more).</p>
                     </div>
                     
                     <video class="small-portrait" src="/src/images/js-challenge-small-p.mp4" autoplay loop muted></video>
@@ -328,29 +329,13 @@
                     <video class="project-video" src="/src/images/Sass App.mp4" autoplay loop muted></video>
                 
                     <div class="work-desc">                        
-                        <p>- A responsive SPA made with SCSS.</p>
-                        <p>- Developed with mixins, nesting, variables, extend and other tools.</p>
+                        <p><span class="hyphen">-</span> A responsive SPA made with SCSS.</p>
+                        <p><span class="hyphen">-</span> Developed with mixins, nesting, variables, extend and other tools.</p>
                     </div>
 
                     <img class="small-portrait" src="/src/images/sass-app-small-portrait.png" alt="">
                     
                 </div>
-
-                <!-- <div class="work-item-container2">
-
-                    <h2 class="work-title">SASS/SCSS SPA
-                        <a href="https://github.com/GuidoMantegna/Sass-App" target="_blank"><i class="icon-github project-link"></i></a>
-                    </h2>
-                    <video class="project-video" src="/src/images/Sass App.mp4" autoplay loop muted></video>
-                
-                    <div class="work-desc">                        
-                        <p>- A responsive SPA made with SCSS.</p>
-                        <p>- Developed with mixins, nesting, variables, extend and other tools.</p>
-                    </div>
-
-                    <img class="small-portrait" src="/src/images/sass-app-small-portrait.png" alt="">
-                    
-                </div> -->
 
                 <div class="fit-content"></div>
             </div>
@@ -361,18 +346,18 @@
                 <div></div> <div></div> <div></div> <div></div>
             </div>
 
-            <h2 class="content-title">< /work ></h2>
         </div>
 
-    </div>
+    </section>
 
 <!-- SKILLS -->
-    <div class="skills content" id="skills">  
-        
+    <section class="content" id="skills">     
         <div class="skills-main-container">
-            <h2 class="content-title">< skills ></h2>
-            <p class="skills-header">> > I'm a frontend developer (trainee/junior) who always likes to be in continuous development. These are the skills where I feel safe. I have quite a good practice in some of them, and in others I do my best, but I always keep learning and acquiring new knowledge.</p>
-            
+            <div class="section-header">
+                <h2><span class="title-num">3.</span> skills</h2>
+                <p>I'm a frontend developer (trainee/junior) who always likes to be in continuous development. These are the skills where I feel safe. I have quite a good practice in some of them, and in others I do my best, but I always keep learning and acquiring new knowledge.</p>
+            </div>
+
             <div class="skill-item">
                 <img class="skill-logo" src="/src/images/html.png" alt="">
                 <div class="skill-desc">
@@ -391,7 +376,6 @@
                 <img class="skill-logo" src="/src/images/js.png" alt="">
                 <div class="skill-desc">
                     <h6>JavaScript</h6>
-                    <p>ES6/7</p>
                 </div>
             </div>
             <div class="skill-item">
@@ -423,18 +407,17 @@
                 </div>
             </div>
     
-            <h2 class="content-title">< /skills ></h2>
         </div>
-
-
-    </div>
+    </section>
 
 <!-- OTHERS -->
-    <div class="others content" id="others">
-        <div class="others-main-container">
-            <h2 class="content-title">< others ></h2>
+    <section class="content" id="others">
 
-            <p class="skills-header">> During my spare time I do activities that inspire and relax me, and make me continue creating and growing.</p>
+        <div class="others-main-container">
+            <div class="section-header">
+                <h2><span class="title-num">4.</span> others</h2>
+                <p>During my spare time I do activities that inspire and relax me, and make me continue creating and growing.</p>
+            </div>
 
             <div class="others-content">
                 <div class="others-tags">
@@ -458,37 +441,37 @@
                 </div>
 
                 <p class="hobby-brief selected-brief">
-                    I like <span>PHOTOGRAPHY</span> so much. I'm always with my camera when i travel. To do some post-production i use tools like <span>PHOTOSHOP, LIGHTROOM</span> and <span>ILLUSTRATOR</span>.
+                    I like PHOTOGRAPHY so much. I'm always with my camera when i travel. To do some post-production i use tools like PHOTOSHOP, LIGHTROOM and ILLUSTRATOR.
                     <a href="https://instagram.com/guidomantegna?igshid=6ggwr0edtp83" target="_blank"> >> more</a>
                 </p>
                 <p class="hobby-brief no-selected-brief">
-                    <span>WOODWORK</span> and building things is something that i love. In the past, it was part of my work. Now it's a way to continue creating.
+                    WOODWORK and building things is something that i love. In the past, it was part of my work. Now it's a way to continue creating.
                     <a href="https://www.instagram.com/losviajesdechicha/?igshid=1137lb4cy4vtu" target="_blank"> >> more</a>
                 </p>
                 <p class="hobby-brief no-selected-brief">
-                    I've played <span>GUITAR</span> since i was twelve. I was part of differents bands and i studied music production. Now i enjoy making music with <span>GARAGE BAND</span>.
+                    I've played GUITAR since i was twelve. I was part of differents bands and i studied music production. Now i enjoy making music with GARAGE BAND.
                 </p>
                 <p class="hobby-brief no-selected-brief">
-                    <span>BIKING</span> and <span>SWIMMING</span> are my passions, and they allow me to relax and get away. I also like to <span>RESTORE OLD BIKES</span>.
+                    BIKING and SWIMMING are my passions, and they allow me to relax and get away. I also like to <span>RESTORE OLD BIKES</span>.
                     <a href="https://instagram.com/guidobicis?igshid=r2ia7ud4heby" target="_blank"> >> more</a>
                 </p>
             </div>
 
-            <h2 class="content-title last-tag">< /others ></h2>
         </div>
-    </div>
 
-<!-- CONTACT -->
-    <div class="contact" id="contact">
-        <p class="contact-p">Developed by Guido Mantegna. Get in touch!</p>
-        <div class="contact-links">
+    </section>
+
+<!-- FOOTER -->
+    <footer id="footer">
+        <p class="footer-p">Developed by Guido Mantegna. Get in touch!</p>
+        <div class="footer-links">
             <a href="mailto:mantegnaguido@gmail.com"><i class="icon-mail4"></i></a>
             <a href="https://www.linkedin.com/in/guidomantegna/" target="_blank"><i class="icon-linkedin"></i></a>
             <a href="https://github.com/GuidoMantegna" target="_blank"><i class="icon-github"></i></a>
             <a href="https://instagram.com/guidomantegna?igshid=6ggwr0edtp83" target="_blank"><i class="icon-instagram"></i></a>
             <a href="https://twitter.com/guidomantegna"><i class="icon-twitter" target="_blank"></i></a>
         </div>
-    </div>
+    </footer>
 
     <script src="/src/script.js"></script>
 </body>

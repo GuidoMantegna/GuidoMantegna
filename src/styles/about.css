@@ -4,6 +4,7 @@
     flex-direction: column;
     justify-content: space-around;
     flex-grow: 1;
+    margin-bottom: 20px;
 }
 
 .avatar {
@@ -32,23 +33,21 @@
 }
 
 .education-header {
-    color: var(--title-color);
+    color: var(--color-1);
     letter-spacing: var(--p-letter-spacing);
-    position: relative;
+    display: flex;
+    align-items: center;
     margin: 5px;
     text-align: end;
-    font-weight: 400;
+    font-weight: 300;
 }
-.education-header::after {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 60%;
-    bottom: 40%;
+.education-header > div {
+    flex-grow: 1;
+    background-color: var(--text-color-dark);
     height: 1px;
-    background: var(--title-color);
-    /* opacity: .25; */
+    margin-right: 10px;
 }
+
 .education {
     margin-top: 5px;
     letter-spacing: var(--p-letter-spacing);  
@@ -69,13 +68,14 @@
 .education-title {
     display: flex;
     width: fit-content;
-    cursor: pointer;
+    
 }
 .education-title > h6 {
     font-size: .8em;
-    color: var(--link-color);
+    color: var(--color-2);
     margin-bottom: 4px;
     margin-top: 0;
+    cursor: pointer;
 }
 .education > p {
     font-size: .75em;
@@ -104,7 +104,6 @@
         width: 75%;
     }
 }
-
 @media screen and (min-width: 1200px) {
     .avatar {
         height: 250px;

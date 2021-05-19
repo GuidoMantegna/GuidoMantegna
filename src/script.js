@@ -1,28 +1,20 @@
-const mainLoader = document.querySelector('.main-loader');
-const body = document.querySelector('body');
 // window.addEventListener("loadstart", console.log('loading'))
 
-// SECTION NAME ANIMATION
-
+// ON LOAD EVENTS
 const sectionsP = document.querySelectorAll('.section-name > p');
-const social = document.querySelector('.social');
-const presentation = document.querySelector('.presentation');
-const contactIcons = document.querySelectorAll('.contact-links > a');
-const navContact = document.querySelector('.nav-contact');
-const navContactIcon = document.querySelector('.nav-contact > i');
-const instructions = document.querySelector('.instructions');
-const viewportWidth = window.innerWidth;
-const viewportHeight = window.innerHeight;
-
+      leftSidebar = document.querySelector('.left-sidebar'),
+      rightSidebar = document.querySelector('.right-sidebar'),
+      contactIcons = document.querySelectorAll('.footer-links > a'),
+      navContact = document.querySelector('.nav-contact'),
+      navContactIcon = document.querySelector('.nav-contact > i'),
+      instructions = document.querySelector('.instructions'),
 
 window.addEventListener("load", function(e) {
 
-    social.style.transform = "translateY(0)";
-    presentation.style.transform = "translateY(0)";
+    leftSidebar.style.transform = "translateY(0)";
+    rightSidebar.style.transform = "translateY(0)";
     navContact.style.transform = "translate(0)";
     navContactIcon.style.color = "var(--p-color)";
-
-    
 
     let interval = 100;
 
@@ -60,11 +52,11 @@ window.addEventListener("load", function(e) {
 
   });
 
-// SECTION NAME OPENER
+// HOME SECTION OPENER
 
-const sections = document.querySelectorAll('.section');
-const sectionName = Array.from(document.querySelectorAll('.section-name'));
-const briefs = document.querySelectorAll('.brief');
+const sections = document.querySelectorAll('.section'),
+      sectionName = Array.from(document.querySelectorAll('.section-name')),
+      briefs = document.querySelectorAll('.brief');
 
 sectionName.forEach(section => section.addEventListener('click', e => {
 
@@ -92,7 +84,6 @@ sectionName.forEach(section => section.addEventListener('click', e => {
         }
     }
 
-
     switch (sectionIndex) {
         case 0:
             openSection(0);
@@ -106,17 +97,16 @@ sectionName.forEach(section => section.addEventListener('click', e => {
         case 3:
             openSection(3);
             break;
-
     }
 
 }))
 
 // BURGUER MENU
 
-const burguerBtn = document.querySelector('.burguer-btn');
-const burguerMenu = document.querySelector('.burguer-menu');
-const burguerLines = document.querySelectorAll('.burguer-line');
-const burguerLinks = document.querySelectorAll('.burguer-link');
+const burguerBtn = document.querySelector('.burguer-btn'),
+      burguerMenu = document.querySelector('.burguer-menu'),
+      burguerLines = document.querySelectorAll('.burguer-line'),
+      burguerLinks = document.querySelectorAll('.burguer-link');
 
 burguerClose = true;
 
@@ -128,14 +118,9 @@ const closeMenu = () => {
         burguerMenu.style.top = `${nav.clientHeight}px`;
         if(window.innerWidth < 768 && window.innerHeight > 500) {
             burguerMenu.style.bottom = `${footer.clientHeight}px`;
-            console.log(window.innerHeight)
         } else {
             burguerMenu.style.bottom = `0`;
         }
-        // if(window.innerWidth < 768) {
-        //     burguerMenu.style.bottom = `${footer.clientHeight}px`;
-        //     console.log(window.innerHeight)
-        // }
         
         setTimeout(() => {
             burguerLines[0].style.display = "none";
@@ -171,11 +156,12 @@ const closeMenu = () => {
 burguerBtn.addEventListener('click', closeMenu);
 burguerLinks.forEach(link => link.addEventListener('click', closeMenu))
 
-// HIDE NAVBAR & FOOTER / RIGHT SIDEBAR ON SMALL DEVICES
+// HIDE/SHOW NAVBAR & FOOTER & SECTION TITLES
 
-const nav = document.querySelector('nav');
-const navLinks = document.querySelector('.nav-links');
-const footer = document.querySelector('.contact');
+const nav = document.querySelector('nav'),
+      navLinks = document.querySelector('.nav-links'),
+      footer = document.querySelector('footer'),
+      sectionTitle = document.querySelectorAll('.section-header > h2');      
 
 let scrollPosition = 0;
 
@@ -197,8 +183,6 @@ window.addEventListener('scroll', e => {
         footer.style.transform = 'translateY(0)';
     }
 
-    
-
     if(window.innerWidth >= 992 && window.scrollY > window.innerHeight) {
         navLinks.style.display = "flex";
     } else {
@@ -207,13 +191,50 @@ window.addEventListener('scroll', e => {
 
     scrollPosition = e.target.scrollingElement.scrollTop;
 
-})
+    // SECTION TITLES
+
+    const sectionsPosition = {
+        about: sectionTitle[0].getBoundingClientRect().top,
+        work: sectionTitle[1].getBoundingClientRect().top,
+        skills: sectionTitle[2].getBoundingClientRect().top,
+        others: sectionTitle[3].getBoundingClientRect().top,
+      };
+    
+    const {about, work, skills, others} = sectionsPosition;
+
+    let aboutOnScreen = about < window.innerHeight && about > 0;
+    let workOnScreen = work < window.innerHeight && work > 0;
+    let skillsOnScreen = skills < window.innerHeight && skills > 0;
+    let othersOnScreen = others < window.innerHeight && others > 0;
+
+    switch (true) {
+        case aboutOnScreen:
+            sectionTitle[0].style.transform = 'translateX(0)'
+            break;
+        case workOnScreen:
+            sectionTitle[1].style.transform = 'translateX(0)'
+            break;
+        case skillsOnScreen:
+            sectionTitle[2].style.transform = 'translateX(0)'
+            break;
+        case othersOnScreen:
+            sectionTitle[3].style.transform = 'translateX(0)'
+            break;
+        default:
+            sectionTitle[0].style.transform = 'translateX(100%)';
+            sectionTitle[1].style.transform = 'translateX(100%)';
+            sectionTitle[2].style.transform = 'translateX(100%)';
+            sectionTitle[3].style.transform = 'translateX(100%)';
+            break;
+    }
+
+});
+
 
 window.addEventListener('orientationchange', () => {
     if(window.innerHeight < 992) {
         navLinks.style.display = "none";
     }
-
 })
 
 // SPREAD EDUCATION 
@@ -223,7 +244,6 @@ titles.forEach(title => title.addEventListener('click', e => {
     const brief = title.nextElementSibling;
     const height = title.nextElementSibling.clientHeight;
     const spread = e.target.previousElementSibling.firstElementChild;
-
 
     if(e.target != title) {
         if (height == 0) {
@@ -236,8 +256,6 @@ titles.forEach(title => title.addEventListener('click', e => {
             spread.innerText = '>'
         }
     }
-
-    console.log(e)
 }))
 
 // WORK SLIDE
@@ -333,21 +351,14 @@ const chooseWork = (num, action) => {
         work[num].classList.add('work-item-next');
         setClassRew(num)
     }
-
-    // console.table({
-    //     work0 : work[0].classList[1],
-    //     work1 : work[1].classList[1],
-    //     work2 : work[2].classList[1],
-    //     work3 : work[3].classList[1],
-    // })
     
 }
 
 const setSlidePosition = (num) => {
     for (let index = 0; index < slidePosition.length; index++) {
         index === num ? 
-        slidePosition[index].style.background = "rgba(255, 248, 220, .8)":
-        slidePosition[index].style.background = "rgba(255, 248, 220, .3)"
+        slidePosition[index].style.background = "var(--text-color)":
+        slidePosition[index].style.background = "var(--text-color-dark)"
     }
 }
 
