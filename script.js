@@ -273,8 +273,8 @@ const chooseWork = (num, action) => {
                 work[1].classList.remove('work-item-next');
                 work[1].classList.add('current-item');
     
-                work[3].classList.remove('work-item-prev');
-                work[3].classList.add('work-item-next');
+                work[4].classList.remove('work-item-prev');
+                work[4].classList.add('work-item-next');
     
                 break;
             case 1:
@@ -294,11 +294,19 @@ const chooseWork = (num, action) => {
     
                 break;
             case 3:
-                work[0].classList.remove('work-item-next');
-                work[0].classList.add('current-item');
+                work[4].classList.remove('work-item-next');
+                work[4].classList.add('current-item');
     
                 work[2].classList.remove('work-item-prev');
                 work[2].classList.add('work-item-next');
+    
+                break;
+            case 4:
+                work[0].classList.remove('work-item-next');
+                work[0].classList.add('current-item');
+    
+                work[3].classList.remove('work-item-prev');
+                work[3].classList.add('work-item-next');
     
                 break;
         }
@@ -307,6 +315,14 @@ const chooseWork = (num, action) => {
     const setClassRew = num => {
         switch (num) {
             case 0:
+                work[4].classList.remove('work-item-prev');
+                work[4].classList.add('current-item');
+
+                work[3].classList.remove('work-item-next');
+                work[3].classList.add('work-item-prev');
+    
+                break;
+            case 4:
                 work[3].classList.remove('work-item-prev');
                 work[3].classList.add('current-item');
 
@@ -314,12 +330,12 @@ const chooseWork = (num, action) => {
                 work[2].classList.add('work-item-prev');
     
                 break;
-            case 1:
-                work[0].classList.remove('work-item-prev');
-                work[0].classList.add('current-item');
+            case 3:
+                work[2].classList.remove('work-item-prev');
+                work[2].classList.add('current-item');
 
-                work[3].classList.remove('work-item-next');
-                work[3].classList.add('work-item-prev');
+                work[1].classList.remove('work-item-next');
+                work[1].classList.add('work-item-prev');
     
                 break;
             case 2:
@@ -330,12 +346,12 @@ const chooseWork = (num, action) => {
                 work[0].classList.add('work-item-prev');
     
                 break;
-            case 3:
-                work[2].classList.remove('work-item-prev');
-                work[2].classList.add('current-item');
+            case 1:
+                work[0].classList.remove('work-item-prev');
+                work[0].classList.add('current-item');
 
-                work[1].classList.remove('work-item-next');
-                work[1].classList.add('work-item-prev');
+                work[4].classList.remove('work-item-next');
+                work[4].classList.add('work-item-prev');
     
                 break;
         }
@@ -367,7 +383,7 @@ workBtn.forEach(btn => btn.addEventListener('click', e => {
 
     const setSlideNum = () => {
         if(action === "fwd") {
-            if(slideNum < 3) {
+            if(slideNum < 4) {
                 slideNum += 1
             } else {
                 slideNum = 0
@@ -376,7 +392,7 @@ workBtn.forEach(btn => btn.addEventListener('click', e => {
             if (slideNum > 0) {
                 slideNum -=1
             } else {
-                slideNum = 3
+                slideNum = 4
             }
         }
     }
