@@ -8,6 +8,7 @@ i've been studying hard for over an year and now i strongly want to continue lea
 \- HTML5 <br>
 \- CSS3 (SASS, CSS GRID, FLEXBOX) <br>
 \- JavaScript <br>
+\- TypeScript <br>
 \- React (Hooks / Classes) <br>
 \- Node.JS / NPM <br>
 \- Bootstrap
