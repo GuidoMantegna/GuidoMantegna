@@ -57,17 +57,16 @@
     margin-bottom: 10px;
 }
 
-.project-link {
-    margin-left: 5px;
-    color: var(--color-1);
-}
-
 .project-video {
     width: 100%;
     margin: 10px 0;
     box-sizing: border-box;
     border-radius: 3px;
     box-shadow: 3px 3px var(--text-color-dark);
+}
+
+.project-video > span {
+    background-color: brown;
 }
 
 .js-challenge {
@@ -99,6 +98,21 @@
     text-align: justify;
 }
 
+.work-links {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.work-links > a {
+    margin-left: 15px;
+    margin-top: 20px;
+    font-size: 1.5em;
+}
+
+.work-links > a > i {
+    color: var(--color-1);
+}
+
 .hyphen {
     color: var(--color-1);
     font-size: 1.2em;
@@ -126,7 +140,6 @@
 }
 
 .rew {
-    /* display: none; */
     left: -15px;
 }
 
@@ -201,6 +214,10 @@
         box-sizing: border-box;
         justify-content: center;
         grid-area: brief;
+    }
+    .work-links > a {
+        font-size: 2em;
+
     }
     .small-portrait {
         display: block;
