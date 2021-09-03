@@ -1,17 +1,24 @@
 ![banner](dino-back-light.jpg)
 ## Hi, i'm Guido!
 🌎 [guidomantegna.com](https://guidomantegna.github.io/GuidoMantegna/)
-### :wave: I'm a trainee frontend developer from Buenos Aires, Argentina. 
-i've been studying hard for over an year and now i strongly want to continue learning in some project.
+### :wave: I'm a Frontend Developer from Buenos Aires, Argentina. 
+
+
+- 🔭 I’m currently working on Feedback Software
+- 📫 How to reach me: mantegnaguido@gmail.com
 
 ### :muscle: skills
-\- HTML5 <br>
-\- CSS3 (SASS, CSS GRID, FLEXBOX) <br>
+
 \- JavaScript <br>
 \- TypeScript <br>
 \- React (Hooks / Classes) <br>
+\- Redux <br>
 \- Node.JS / NPM <br>
-\- Bootstrap
+\- Git <br>
+\- Bootstrap <br>
+\- SASS <br>
+\- CSS3 <br>
+\- HTML5
 
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=GuidoMantegna&layout=compact&theme=vue)
 
