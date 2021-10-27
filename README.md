@@ -5,20 +5,21 @@
 
 
 - 🔭 I’m currently working on Feedback Software
-- 📫 How to reach me: mantegnaguido@gmail.com
+- 📫 Contact me: mantegnaguido@gmail.com
 
 ### :muscle: skills
 
-\- JavaScript <br>
-\- TypeScript <br>
-\- React (Hooks / Classes) <br>
-\- Redux <br>
-\- Node.JS / NPM <br>
-\- Git <br>
-\- Bootstrap <br>
-\- SASS <br>
-\- CSS3 <br>
-\- HTML5
+JavaScript ✅ <br>
+TypeScript ✅ <br>
+React (Hooks / Classes) ✅ <br>
+Redux ✅ <br>
+Testing (Jest / React Testing Library) ✅ <br>
+Node.JS / NPM ✅ <br>
+Git ✅ <br>
+Bootstrap ✅ <br>
+SASS ✅ <br>
+CSS3 ✅ <br>
+HTML5 ✅
 
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=GuidoMantegna&layout=compact&theme=vue)
 
