@@ -5,7 +5,7 @@
 
 👋 **Frontend Engineer** focused on **building scalable, high-performance web applications** and improving **engineering productivity through modern tooling and AI-Augmented Development workflows**.
 
-🔗 My Porfolio https://guidomantegna.vercel.app/
+📂 My Porfolio https://guidomantegna.vercel.app/
 
 📍 Buenos Aires, Argentina
 
@@ -148,6 +148,8 @@ TypeScript • Sass
 
 📧 Email
 [mantegnaguido@gmail.com](mailto:mantegnaguido@gmail.com) </br>
+📂 My Porfolio 
+https://guidomantegna.vercel.app/ </br>
 💼 LinkedIn
 https://www.linkedin.com/in/guidomantegna </br>
 🐦 X
